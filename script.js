@@ -307,3 +307,9 @@ if (!reduceMotion) {
     }
   }, {passive:true});
 }
+
+// Load the build-in-public product truth lens as an isolated progressive enhancement.
+const truthLayerScript = document.createElement('script');
+truthLayerScript.src = 'truth-layer.js';
+truthLayerScript.defer = true;
+document.head.appendChild(truthLayerScript);
