@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#08090a" />
+  <meta name="description" content="Jarvis OS — a personal AI operating layer built around context, continuity, agents, voice, files and tools." />
+  <title>Jarvis OS — Your second mind, inside your computer.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="Jarvis OS home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>JARVIS<span class="muted">/OS</span></span>
+    </a>
+    <div class="header-center">
+      <span class="status-dot"></span>
+      <span>BUILD 0.1 — IN DEVELOPMENT</span>
+    </div>
+    <button class="menu-button magnetic" type="button" data-menu-open aria-expanded="false" aria-controls="menuOverlay">
+      <span>MENU</span><span class="menu-plus">+</span>
+    </button>
+  </header>
+
+  <aside class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <div class="menu-top">
+      <span>JARVIS / NAVIGATION</span>
+      <button class="menu-close magnetic" type="button" data-menu-close>Close ×</button>
+    </div>
+    <nav class="menu-nav" aria-label="Primary navigation">
+      <a href="#vision" data-menu-link><span>01</span><strong>Vision</strong></a>
+      <a href="#capabilities" data-menu-link><span>02</span><strong>Capabilities</strong></a>
+      <a href="#agents" data-menu-link><span>03</span><strong>Agents</strong></a>
+      <a href="#continuity" data-menu-link><span>04</span><strong>Continuity</strong></a>
+      <a href="#architecture" data-menu-link><span>05</span><strong>Architecture</strong></a>
+      <a href="#roadmap" data-menu-link><span>06</span><strong>Roadmap</strong></a>
+    </nav>
+    <div class="menu-foot">
+      <span>One interface. Many intelligences.</span>
+      <a href="https://github.com/thetarunsahu/Jarvis-OS" target="_blank" rel="noreferrer">View Jarvis OS on GitHub ↗</a>
+    </div>
+  </aside>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-orbit" aria-hidden="true">
+        <div class="orbit orbit-a"><span></span></div>
+        <div class="orbit orbit-b"><span></span></div>
+        <div class="orbit orbit-c"><span></span></div>
+        <div class="core"><span>J</span></div>
+      </div>
+
+      <div class="eyebrow reveal">
+        <span>PERSONAL AI OPERATING LAYER</span>
+        <span class="hero-time" data-clock>--:--:--</span>
+      </div>
+
+      <div class="hero-copy reveal">
+        <h1>
+          <span>DON'T OPEN</span>
+          <span class="outline">ANOTHER APP.</span>
+          <span class="hero-accent">ASK JARVIS.</span>
+        </h1>
+        <p>Your second mind, built into your computer — with memory, context, agents and the ability to continue where you left off.</p>
+      </div>
+
+      <div class="hero-console reveal" data-console>
+        <div class="console-head">
+          <div><span class="status-dot"></span> JARVIS COMMAND</div>
+          <div class="console-shortcut">PRESS <kbd>/</kbd> TO FOCUS</div>
+        </div>
+        <form class="command-form" data-command-form>
+          <span class="prompt">›</span>
+          <input data-command-input autocomplete="off" spellcheck="false" aria-label="Try a Jarvis command" placeholder="Tell Jarvis what you want to continue..." />
+          <button type="submit" class="command-submit magnetic" aria-label="Run command">↗</button>
+        </form>
+        <div class="quick-commands" aria-label="Example commands">
+          <button type="button" data-command="Continue my Jarvis OS work">Continue my work</button>
+          <button type="button" data-command="Find my weed removal robot files">Find project files</button>
+          <button type="button" data-command="Plan my day around college and coding">Plan my day</button>
+        </div>
+        <div class="console-response" data-console-response aria-live="polite">
+          <div class="response-meta"><span>JARVIS</span><span data-response-state>READY</span></div>
+          <p data-response-text>Context loaded. Waiting for a command.</p>
+          <div class="response-actions" data-response-actions></div>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#vision"><span>SCROLL TO ENTER</span><i>↓</i></a>
+    </section>
+
+    <section class="marquee-section" aria-label="Jarvis principles">
+      <div class="marquee-track">
+        <span>CONTEXT, NOT TABS.</span><i>◆</i><span>CONTINUITY, NOT RESTARTS.</span><i>◆</i><span>ACTIONS, NOT ANSWERS.</span><i>◆</i>
+        <span>CONTEXT, NOT TABS.</span><i>◆</i><span>CONTINUITY, NOT RESTARTS.</span><i>◆</i><span>ACTIONS, NOT ANSWERS.</span><i>◆</i>
+      </div>
+    </section>
+
+    <section class="vision section-shell" id="vision">
+      <div class="section-label reveal"><span>01 / VISION</span><span>WHY JARVIS EXISTS</span></div>
+      <div class="vision-grid">
+        <h2 class="display-copy reveal">YOUR COMPUTER KNOWS YOUR FILES.<br />YOUR APPS KNOW YOUR TASKS.<br /><em>JARVIS SHOULD KNOW YOU'RE WORKING.</em></h2>
+        <div class="vision-note reveal">
+          <p>Today, every task starts with rebuilding context: open the right app, find the right file, remember the last decision, choose a tool, explain the goal again.</p>
+          <p>Jarvis OS is being built to remove that reset. You ask once. The system understands the project, chooses the right specialist, uses the right tool, and preserves the thread for next time.</p>
+          <span class="micro">PRODUCT DIRECTION — NOT A CLAIM OF COMPLETED FUNCTIONALITY</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="capabilities section-shell" id="capabilities">
+      <div class="section-label reveal"><span>02 / CORE SYSTEM</span><span>THE OPERATING MODEL</span></div>
+
+      <article class="capability feature-context reveal">
+        <div class="capability-index">01</div>
+        <div class="capability-copy">
+          <p class="kicker">PROJECT CONTEXT</p>
+          <h3>It knows what <em>this</em> is.</h3>
+          <p>Projects are not random chats. Jarvis keeps goals, files, decisions, unresolved work and working state together as one evolving context.</p>
+        </div>
+        <div class="context-visual" aria-label="Project context illustration">
+          <div class="context-window main-window">
+            <span class="window-label">JARVIS-OS</span>
+            <strong>Project Context</strong>
+            <small>Active objective</small>
+            <p>Build a voice-first personal AI operating layer.</p>
+            <div class="context-tags"><span>architecture</span><span>ui</span><span>agents</span></div>
+          </div>
+          <div class="context-window floating-window one"><span>LAST SESSION</span><b>18 decisions recovered</b></div>
+          <div class="context-window floating-window two"><span>FILES</span><b>12 relevant sources</b></div>
+          <svg viewBox="0 0 500 240" preserveAspectRatio="none" aria-hidden="true"><path d="M70 190 C160 40, 330 210, 445 65" /></svg>
+        </div>
+      </article>
+
+      <article class="capability feature-agents reveal">
+        <div class="capability-index">02</div>
+        <div class="capability-copy">
+          <p class="kicker">AGENT ORCHESTRATION</p>
+          <h3>One request.<br /><em>The right minds.</em></h3>
+          <p>You should not have to decide which model, app or workflow to use. Jarvis routes the goal to specialist agents and coordinates the result.</p>
+        </div>
+        <div class="agent-stack" aria-label="Example Jarvis agents">
+          <div><span>01</span><strong>CODE</strong><small>implements + verifies</small></div>
+          <div><span>02</span><strong>RESEARCH</strong><small>finds + synthesizes</small></div>
+          <div><span>03</span><strong>DESIGN</strong><small>frames + creates</small></div>
+          <div><span>04</span><strong>FILES</strong><small>retrieves + organizes</small></div>
+          <div><span>05</span><strong>PLANNER</strong><small>prioritizes + sequences</small></div>
+        </div>
+      </article>
+
+      <article class="capability feature-continuity reveal" id="continuity">
+        <div class="capability-index">03</div>
+        <div class="capability-copy">
+          <p class="kicker">SESSION CONTINUITY</p>
+          <h3>Close it tonight.<br /><em>Resume tomorrow.</em></h3>
+          <p>The system is designed to remember where the work stopped, what changed, what remains blocked and what the next useful action is.</p>
+        </div>
+        <div class="continuity-visual">
+          <div class="continuity-line"><span class="active"></span><span></span><span></span><span></span></div>
+          <div class="session-card past">
+            <span>YESTERDAY · 23:48</span>
+            <strong>Core architecture</strong>
+            <p>Stopped after defining project context boundaries.</p>
+          </div>
+          <div class="session-card now">
+            <span>TODAY · RESUME POINT</span>
+            <strong>Continue from the last decision?</strong>
+            <button type="button" class="fake-button">Continue →</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="agents section-shell" id="agents">
+      <div class="section-label reveal"><span>03 / AGENTS</span><span>SPECIALISTS, NOT MODES</span></div>
+      <div class="agents-intro reveal">
+        <h2>A SMALL TEAM<br />LIVING INSIDE<br /><em>ONE INTERFACE.</em></h2>
+        <p>Jarvis is the front door. Behind it, specialists can reason about code, research, files, planning and design without forcing you to jump between tools.</p>
+      </div>
+      <div class="agent-grid">
+        <article class="agent-card reveal"><span class="agent-no">A / 01</span><div class="agent-symbol">&lt;/&gt;</div><h3>Builder</h3><p>Turns product intent into implementation, checks work and returns evidence.</p><span class="agent-status">TARGET CAPABILITY</span></article>
+        <article class="agent-card reveal"><span class="agent-no">A / 02</span><div class="agent-symbol">⌕</div><h3>Researcher</h3><p>Collects current information, compares sources and returns decision-ready context.</p><span class="agent-status">TARGET CAPABILITY</span></article>
+        <article class="agent-card reveal"><span class="agent-no">A / 03</span><div class="agent-symbol">✦</div><h3>Designer</h3><p>Transforms rough intent into interfaces, visual systems and product directions.</p><span class="agent-status">TARGET CAPABILITY</span></article>
+        <article class="agent-card reveal"><span class="agent-no">A / 04</span><div class="agent-symbol">◫</div><h3>Archivist</h3><p>Finds project files, connects related material and preserves useful working memory.</p><span class="agent-status">TARGET CAPABILITY</span></article>
+      </div>
+    </section>
+
+    <section class="command-story section-shell">
+      <div class="section-label reveal"><span>04 / INTERACTION</span><span>NATURAL LANGUAGE → ACTION</span></div>
+      <div class="command-stage reveal">
+        <p class="command-pre">Instead of this:</p>
+        <div class="app-chaos" aria-label="Traditional app switching">
+          <span>Browser</span><span>VS Code</span><span>Drive</span><span>Chat</span><span>Notes</span><span>Terminal</span><span>Calendar</span><span>Figma</span>
+        </div>
+        <div class="story-arrow">↓</div>
+        <p class="command-pre">Say this:</p>
+        <blockquote>“Jarvis, continue the website from where we stopped and show me what actually changed.”</blockquote>
+        <div class="system-reply">
+          <span class="status-dot"></span>
+          <p><b>Understood.</b> Restoring project context, checking the repository, then continuing the highest-value unfinished work.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="day-section section-shell">
+      <div class="section-label reveal"><span>05 / A DAY WITH JARVIS</span><span>ONE THREAD, ALL DAY</span></div>
+      <div class="day-grid">
+        <div class="day-sticky reveal"><h2>WORK CHANGES.<br /><em>CONTEXT SHOULDN'T.</em></h2><p>The same assistant follows the thread from planning to college to building to review.</p></div>
+        <div class="day-timeline">
+          <article class="day-event reveal"><time>07:20</time><span class="timeline-dot"></span><div><small>MORNING</small><h3>“What matters today?”</h3><p>Jarvis surfaces the three useful priorities, unfinished work and calendar constraints.</p></div></article>
+          <article class="day-event reveal"><time>11:40</time><span class="timeline-dot"></span><div><small>COLLEGE</small><h3>“Save this for Agribot.”</h3><p>A thought becomes project context without breaking the current task.</p></div></article>
+          <article class="day-event reveal"><time>17:10</time><span class="timeline-dot"></span><div><small>BUILD</small><h3>“Continue Jarvis OS.”</h3><p>The previous session, open decisions and next task are restored before work begins.</p></div></article>
+          <article class="day-event reveal"><time>23:52</time><span class="timeline-dot"></span><div><small>WRAP</small><h3>“Remember where we stopped.”</h3><p>Jarvis records the useful state so tomorrow starts with momentum, not reconstruction.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="architecture section-shell" id="architecture">
+      <div class="section-label reveal"><span>06 / SYSTEM</span><span>THE SHAPE OF JARVIS</span></div>
+      <div class="architecture-intro reveal">
+        <h2>NOT ONE MODEL.<br /><em>AN ORCHESTRATED SYSTEM.</em></h2>
+        <p>The interface is only the surface. The product direction connects project context, memory, model routing, specialist agents, tools and local computer actions.</p>
+      </div>
+      <div class="architecture-map reveal" aria-label="Conceptual Jarvis architecture">
+        <svg class="architecture-lines" viewBox="0 0 1000 560" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M500 280 C380 220, 330 130, 170 105" />
+          <path d="M500 280 C640 210, 700 110, 835 105" />
+          <path d="M500 280 C370 330, 300 450, 155 460" />
+          <path d="M500 280 C630 350, 710 445, 850 460" />
+          <path d="M500 280 C500 190, 500 115, 500 54" />
+          <path d="M500 280 C500 370, 500 440, 500 510" />
+        </svg>
+        <div class="arch-node core-node"><span>CORE</span><strong>JARVIS</strong><small>orchestrator</small></div>
+        <div class="arch-node n1"><span>INPUT</span><strong>Voice + Chat</strong></div>
+        <div class="arch-node n2"><span>CONTEXT</span><strong>Projects + Memory</strong></div>
+        <div class="arch-node n3"><span>REASONING</span><strong>Model Router</strong></div>
+        <div class="arch-node n4"><span>EXECUTION</span><strong>Agents + Tools</strong></div>
+        <div class="arch-node n5"><span>COMPUTER</span><strong>Files + Apps</strong></div>
+        <div class="arch-node n6"><span>STATE</span><strong>Session Continuity</strong></div>
+      </div>
+      <p class="architecture-note reveal">Conceptual product architecture. Individual modules evolve as the desktop product is implemented and verified.</p>
+    </section>
+
+    <section class="roadmap section-shell" id="roadmap">
+      <div class="section-label reveal"><span>07 / BUILD IN PUBLIC</span><span>WHAT HAPPENS NEXT</span></div>
+      <div class="roadmap-head reveal">
+        <h2>THE WEBSITE CAN LOOK<br />LIKE THE FUTURE.<br /><em>THE STATUS MUST TELL THE TRUTH.</em></h2>
+        <p>Jarvis OS is under active development. This site separates product vision from verified implementation instead of pretending the entire system already exists.</p>
+      </div>
+      <div class="roadmap-grid">
+        <article class="roadmap-card reveal"><span class="roadmap-tag active">CURRENT FOCUS</span><h3>Core architecture</h3><p>Project context, continuity, AI-first home and a reliable resume-work loop.</p></article>
+        <article class="roadmap-card reveal"><span class="roadmap-tag">NEXT</span><h3>Tool execution</h3><p>Let Jarvis choose tools, execute bounded actions and return visible proof of work.</p></article>
+        <article class="roadmap-card reveal"><span class="roadmap-tag">LATER</span><h3>Proactive intelligence</h3><p>Background work, specialized agents and useful suggestions without becoming noisy.</p></article>
+      </div>
+    </section>
+
+    <section class="final-cta section-shell">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <p class="reveal">THE GOAL ISN'T A BETTER CHATBOT.</p>
+      <h2 class="reveal">IT'S A COMPUTER<br />THAT CAN <em>WORK WITH YOU.</em></h2>
+      <div class="cta-actions reveal">
+        <a class="primary-cta magnetic" href="https://github.com/thetarunsahu/Jarvis-OS" target="_blank" rel="noreferrer">Explore the build ↗</a>
+        <a class="text-cta" href="#top">Back to system ↑</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <div class="footer-brand">JARVIS<span>/OS</span></div>
+    <div class="footer-meta"><span>PERSONAL AI OPERATING LAYER</span><span>DESIGNED + BUILT IN PUBLIC</span></div>
+    <div class="footer-end"><span>© 2026</span><a href="https://github.com/thetarunsahu" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
