@@ -124,8 +124,19 @@
     badge.className = 'hero-core-note';
     badge.innerHTML = '<small>INTERFACE STATE</small><strong>JARVIS CORE / ONLINE</strong>';
 
+    const sphere = document.createElement('div');
+    sphere.className = 'holo-sphere';
+    sphere.innerHTML = `
+      <div class="sphere-aura"></div>
+      <div class="sphere-body"><i></i><i></i><i></i></div>
+      <div class="sphere-orbit orbit-x"><b></b></div>
+      <div class="sphere-orbit orbit-y"><b></b></div>
+      <div class="sphere-orbit orbit-z"><b></b></div>
+      <div class="sphere-scan"></div>`;
+
     heroCore.appendChild(halo);
     heroCore.appendChild(beam);
+    heroCore.appendChild(sphere);
     heroCore.appendChild(badge);
   }
 
