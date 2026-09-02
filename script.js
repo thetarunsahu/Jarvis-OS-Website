@@ -313,3 +313,14 @@ const truthLayerScript = document.createElement('script');
 truthLayerScript.src = 'truth-layer.js';
 truthLayerScript.defer = true;
 document.head.appendChild(truthLayerScript);
+
+// Load the V3 cinematic product showcase as a progressive enhancement.
+const visualUpgradeStyle = document.createElement('link');
+visualUpgradeStyle.rel = 'stylesheet';
+visualUpgradeStyle.href = 'visual-upgrade.css';
+document.head.appendChild(visualUpgradeStyle);
+
+const visualUpgradeScript = document.createElement('script');
+visualUpgradeScript.src = 'visual-upgrade.js';
+visualUpgradeScript.defer = true;
+document.head.appendChild(visualUpgradeScript);
