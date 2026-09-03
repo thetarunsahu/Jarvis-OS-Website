@@ -40,3 +40,13 @@
   function init(){inject();motion();}
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
 })();
+
+const v4Style=document.createElement('link');
+v4Style.rel='stylesheet';
+v4Style.href='v4-system.css';
+document.head.appendChild(v4Style);
+
+const v4Script=document.createElement('script');
+v4Script.src='v4-system.js';
+v4Script.defer=true;
+document.head.appendChild(v4Script);
