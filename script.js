@@ -324,3 +324,14 @@ const visualUpgradeScript = document.createElement('script');
 visualUpgradeScript.src = 'visual-upgrade.js';
 visualUpgradeScript.defer = true;
 document.head.appendChild(visualUpgradeScript);
+
+// Load the V3.2 interactive spatial context scene.
+const spatialCoreStyle = document.createElement('link');
+spatialCoreStyle.rel = 'stylesheet';
+spatialCoreStyle.href = 'spatial-core.css';
+document.head.appendChild(spatialCoreStyle);
+
+const spatialCoreScript = document.createElement('script');
+spatialCoreScript.src = 'spatial-core.js';
+spatialCoreScript.defer = true;
+document.head.appendChild(spatialCoreScript);
