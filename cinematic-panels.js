@@ -60,3 +60,13 @@ const atlasScript=document.createElement('script');
 atlasScript.src='tech-atlas.js';
 atlasScript.defer=true;
 document.head.appendChild(atlasScript);
+
+const introCoreStyle=document.createElement('link');
+introCoreStyle.rel='stylesheet';
+introCoreStyle.href='intro-core.css';
+document.head.appendChild(introCoreStyle);
+
+const introCoreScript=document.createElement('script');
+introCoreScript.src='intro-core.js';
+introCoreScript.defer=true;
+document.head.appendChild(introCoreScript);
