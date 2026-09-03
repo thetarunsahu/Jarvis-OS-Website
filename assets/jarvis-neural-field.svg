@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Jarvis neural context field concept</title><desc id="desc">Original abstract visualization of a Jarvis context core, memory, tools and agents.</desc>
+<defs>
+  <radialGradient id="bg" cx="50%" cy="48%" r="68%"><stop offset="0" stop-color="#101a2a"/><stop offset=".42" stop-color="#080d14"/><stop offset="1" stop-color="#030506"/></radialGradient>
+  <radialGradient id="core" cx="43%" cy="38%" r="65%"><stop offset="0" stop-color="#e7f2ff"/><stop offset=".12" stop-color="#8bb8ff"/><stop offset=".34" stop-color="#315f9d"/><stop offset=".68" stop-color="#0b1522"/><stop offset="1" stop-color="#020304"/></radialGradient>
+  <linearGradient id="line" x1="0" x2="1"><stop stop-color="#78a9ff" stop-opacity="0"/><stop offset=".5" stop-color="#b8d4ff" stop-opacity=".72"/><stop offset="1" stop-color="#78a9ff" stop-opacity="0"/></linearGradient>
+  <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#b9d5ff" stroke-opacity=".055" stroke-width="1"/></pattern>
+  <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="14" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="32"/></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/><rect width="1600" height="900" fill="url(#grid)"/>
+<ellipse cx="860" cy="450" rx="420" ry="420" fill="#4b88db" opacity=".08" filter="url(#soft)"/>
+<g fill="none" stroke="#78a9ff" transform="translate(860 450)">
+  <circle r="315" stroke-opacity=".13"/><circle r="250" stroke-opacity=".22" stroke-dasharray="3 12"/><circle r="188" stroke-opacity=".25"/><circle r="126" stroke-opacity=".34" stroke-dasharray="2 8"/>
+  <ellipse rx="330" ry="102" stroke-opacity=".18" transform="rotate(-16)"/><ellipse rx="270" ry="86" stroke-opacity=".16" transform="rotate(48)"/>
+</g>
+<circle cx="860" cy="450" r="94" fill="url(#core)" stroke="#bcd8ff" stroke-opacity=".45" filter="url(#glow)"/>
+<circle cx="860" cy="450" r="22" fill="#07101a" stroke="#cfe2ff" stroke-opacity=".7"/><text x="860" y="458" fill="#dcecff" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="24">J</text>
+<g stroke="#78a9ff" stroke-opacity=".26" stroke-width="1">
+<path d="M765 450C610 450 565 270 390 270"/><path d="M955 450C1110 450 1165 265 1350 265"/><path d="M785 515C635 590 555 692 370 692"/><path d="M936 520C1068 610 1180 688 1372 688"/>
+</g>
+<g font-family="ui-monospace,Consolas,monospace">
+  <g transform="translate(260 218)"><rect width="260" height="104" rx="3" fill="#081019" stroke="#7da9e8" stroke-opacity=".28"/><text x="18" y="28" fill="#687989" font-size="12" letter-spacing="2">PROJECT CONTEXT</text><text x="18" y="59" fill="#e9f2ff" font-size="22">Jarvis OS</text><text x="18" y="82" fill="#8eb5eb" font-size="12">STATE / RESTORABLE</text></g>
+  <g transform="translate(1220 213)"><rect width="250" height="104" rx="3" fill="#081019" stroke="#7da9e8" stroke-opacity=".28"/><text x="18" y="28" fill="#687989" font-size="12" letter-spacing="2">MEMORY LAYER</text><text x="18" y="59" fill="#e9f2ff" font-size="22">Decisions</text><text x="18" y="82" fill="#8eb5eb" font-size="12">HISTORY / LINKED</text></g>
+  <g transform="translate(244 640)"><rect width="260" height="104" rx="3" fill="#081019" stroke="#7da9e8" stroke-opacity=".28"/><text x="18" y="28" fill="#687989" font-size="12" letter-spacing="2">SPECIALIST</text><text x="18" y="59" fill="#e9f2ff" font-size="22">Builder</text><text x="18" y="82" fill="#8eb5eb" font-size="12">ROUTED / READY</text></g>
+  <g transform="translate(1240 636)"><rect width="250" height="104" rx="3" fill="#081019" stroke="#7da9e8" stroke-opacity=".28"/><text x="18" y="28" fill="#687989" font-size="12" letter-spacing="2">TOOL SPACE</text><text x="18" y="59" fill="#e9f2ff" font-size="22">Workspace</text><text x="18" y="82" fill="#8eb5eb" font-size="12">ACTION / BOUNDED</text></g>
+</g>
+<g fill="#9bc1ff" filter="url(#glow)"><circle cx="630" cy="394" r="3"/><circle cx="1087" cy="388" r="3"/><circle cx="700" cy="610" r="3"/><circle cx="1024" cy="625" r="3"/></g>
+<rect x="86" y="92" width="1428" height="1" fill="url(#line)" opacity=".35"/><text x="88" y="72" fill="#72808e" font-size="12" letter-spacing="3" font-family="ui-monospace,Consolas,monospace">JARVIS / CONTEXT FIELD / CONCEPT VISUAL</text><text x="1512" y="72" fill="#8fb9ef" font-size="12" text-anchor="end" font-family="ui-monospace,Consolas,monospace">V3.4</text>
+</svg>
