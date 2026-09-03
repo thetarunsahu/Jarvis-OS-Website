@@ -50,3 +50,13 @@ const v4Script=document.createElement('script');
 v4Script.src='v4-system.js';
 v4Script.defer=true;
 document.head.appendChild(v4Script);
+
+const atlasStyle=document.createElement('link');
+atlasStyle.rel='stylesheet';
+atlasStyle.href='tech-atlas.css';
+document.head.appendChild(atlasStyle);
+
+const atlasScript=document.createElement('script');
+atlasScript.src='tech-atlas.js';
+atlasScript.defer=true;
+document.head.appendChild(atlasScript);
