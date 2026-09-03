@@ -50,6 +50,7 @@
 
   function playIntro(forceFull=false){
     $('.cinematic-boot')?.remove();
+    document.body.classList.remove('intro-revealed');
     const seen=sessionStorage.getItem('jarvis-awakening-seen')==='1';
     const full=forceFull||!seen;
     const overlay=makeIntro(full);
@@ -78,9 +79,12 @@
     const scenes=full?fullScenes:quickScenes;
 
     const finish=()=>{
+      if(!overlay.isConnected) return;
       sessionStorage.setItem('jarvis-awakening-seen','1');
       overlay.classList.add('is-exiting');
       document.body.classList.remove('intro-playing');
+      document.body.classList.add('intro-revealed');
+      setTimeout(()=>document.body.classList.remove('intro-revealed'),1600);
       setTimeout(()=>overlay.remove(),900);
     };
 
