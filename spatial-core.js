@@ -138,3 +138,14 @@
   function init() { injectSpatialSection(); setupSpatialSteps(); setupSpatialCanvas(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
+
+// Load V3.3 full desktop product scene.
+const desktopSceneStyle = document.createElement('link');
+desktopSceneStyle.rel = 'stylesheet';
+desktopSceneStyle.href = 'desktop-scene.css';
+document.head.appendChild(desktopSceneStyle);
+
+const desktopSceneScript = document.createElement('script');
+desktopSceneScript.src = 'desktop-scene.js';
+desktopSceneScript.defer = true;
+document.head.appendChild(desktopSceneScript);
