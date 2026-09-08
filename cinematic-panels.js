@@ -63,6 +63,7 @@
     ['scroll-choreography.css','scroll-choreography.js'],
     ['launch-polish.css','launch-polish.js'],
     ['signature-experience.css','signature-experience.js'],
+    ['kinetic-type.css','kinetic-type.js'],
     [null,'truth-enhance.js']
   ];
   stack.forEach(([css,js])=>{style(css);script(js);});
