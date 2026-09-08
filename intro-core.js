@@ -48,6 +48,30 @@
     return overlay;
   }
 
+  function morphToHero(overlay,full){
+    if(reduce) return Promise.resolve();
+    const source=$('.boot-cinema-core-wrap .jarvis-sigil',overlay);
+    const target=$('.hero-core .hero-sigil .jarvis-sigil')||$('.hero-core .hero-sigil');
+    if(!source||!target) return Promise.resolve();
+    const from=source.getBoundingClientRect();
+    const to=target.getBoundingClientRect();
+    if(!from.width||!to.width) return Promise.resolve();
+    const clone=source.cloneNode(true);
+    clone.classList.add('sigil-flight');
+    Object.assign(clone.style,{position:'fixed',left:`${from.left}px`,top:`${from.top}px`,width:`${from.width}px`,height:`${from.height}px`,zIndex:'1900',margin:'0',pointerEvents:'none',transformOrigin:'center center'});
+    document.body.appendChild(clone);
+    source.style.opacity='0';
+    target.style.opacity='0';
+    overlay.classList.add('is-morphing');
+    const dx=to.left-from.left,dy=to.top-from.top,sx=to.width/from.width,sy=to.height/from.height;
+    const animation=clone.animate([
+      {transform:'translate3d(0,0,0) scale(1)',filter:'drop-shadow(0 0 28px rgba(120,169,255,.35))',opacity:1},
+      {offset:.55,transform:`translate3d(${dx*.54}px,${dy*.54}px,0) scale(${1+(sx-1)*.48},${1+(sy-1)*.48})`,filter:'drop-shadow(0 0 64px rgba(189,213,255,.52))',opacity:1},
+      {transform:`translate3d(${dx}px,${dy}px,0) scale(${sx},${sy})`,filter:'drop-shadow(0 0 24px rgba(120,169,255,.26))',opacity:.98}
+    ],{duration:full?820:460,easing:'cubic-bezier(.22,.8,.18,1)',fill:'forwards'});
+    return animation.finished.catch(()=>{}).then(()=>{clone.remove();target.style.opacity='';});
+  }
+
   function playIntro(forceFull=false){
     $('.cinematic-boot')?.remove();
     document.body.classList.remove('intro-revealed');
@@ -67,6 +91,7 @@
     const started=performance.now();
     let frame=0;
     let lastStep=-1;
+    let finishing=false;
     const fullScenes=[
       ['INITIALIZING CONTEXT','YOUR COMPUTER HAS ENOUGH APPS.'],
       ['RESTORING MEMORY','THE SYSTEM SHOULD REMEMBER.'],
@@ -79,13 +104,17 @@
     const scenes=full?fullScenes:quickScenes;
 
     const finish=()=>{
-      if(!overlay.isConnected) return;
+      if(!overlay.isConnected||finishing) return;
+      finishing=true;
       sessionStorage.setItem('jarvis-awakening-seen','1');
-      overlay.classList.add('is-exiting');
-      document.body.classList.remove('intro-playing');
-      document.body.classList.add('intro-revealed');
-      setTimeout(()=>document.body.classList.remove('intro-revealed'),1600);
-      setTimeout(()=>overlay.remove(),900);
+      window.dispatchEvent(new CustomEvent('jarvis:state',{detail:{state:'verified',source:'intro',hold:1500}}));
+      morphToHero(overlay,full).finally(()=>{
+        overlay.classList.add('is-exiting');
+        document.body.classList.remove('intro-playing');
+        document.body.classList.add('intro-revealed');
+        setTimeout(()=>document.body.classList.remove('intro-revealed'),1600);
+        setTimeout(()=>overlay.remove(),900);
+      });
     };
 
     $('[data-intro-skip]',overlay)?.addEventListener('click',finish,{once:true});
@@ -110,6 +139,8 @@
           title.style.transform='translateY(8px)';
           setTimeout(()=>{if(title){title.textContent=scenes[step][1];title.style.opacity='1';title.style.transform='translateY(0)';}},120);
         }
+        const stateMap=['listening','thinking','thinking','routing','executing','verified'];
+        window.dispatchEvent(new CustomEvent('jarvis:state',{detail:{state:stateMap[Math.min(step,stateMap.length-1)],source:'intro'}}));
         sideItems.forEach((item,i)=>item.classList.toggle('is-hot',i%scenes.length===step%Math.max(1,scenes.length)));
       }
       if(p<1){frame=requestAnimationFrame(tick);}else{setTimeout(finish,full?340:80);}
