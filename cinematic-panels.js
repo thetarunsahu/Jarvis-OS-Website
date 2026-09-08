@@ -41,42 +41,26 @@
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
 })();
 
-const v4Style=document.createElement('link');
-v4Style.rel='stylesheet';
-v4Style.href='v4-system.css';
-document.head.appendChild(v4Style);
-
-const v4Script=document.createElement('script');
-v4Script.src='v4-system.js';
-v4Script.defer=true;
-document.head.appendChild(v4Script);
-
-const atlasStyle=document.createElement('link');
-atlasStyle.rel='stylesheet';
-atlasStyle.href='tech-atlas.css';
-document.head.appendChild(atlasStyle);
-
-const atlasScript=document.createElement('script');
-atlasScript.src='tech-atlas.js';
-atlasScript.defer=true;
-document.head.appendChild(atlasScript);
-
-const introCoreStyle=document.createElement('link');
-introCoreStyle.rel='stylesheet';
-introCoreStyle.href='intro-core.css';
-document.head.appendChild(introCoreStyle);
-
-const introCoreScript=document.createElement('script');
-introCoreScript.src='intro-core.js';
-introCoreScript.defer=true;
-document.head.appendChild(introCoreScript);
-
-const orchestrationLabStyle=document.createElement('link');
-orchestrationLabStyle.rel='stylesheet';
-orchestrationLabStyle.href='orchestration-lab.css';
-document.head.appendChild(orchestrationLabStyle);
-
-const orchestrationLabScript=document.createElement('script');
-orchestrationLabScript.src='orchestration-lab.js';
-orchestrationLabScript.defer=true;
-document.head.appendChild(orchestrationLabScript);
+(function loadJarvisExperienceStack(){
+  const head=document.head;
+  const loaded=new Set();
+  function style(href){if(loaded.has(href)||document.querySelector(`link[href="${href}"]`))return;loaded.add(href);const link=document.createElement('link');link.rel='stylesheet';link.href=href;head.appendChild(link);}
+  function script(src){if(loaded.has(src)||document.querySelector(`script[src="${src}"]`))return;loaded.add(src);const el=document.createElement('script');el.src=src;el.async=false;head.appendChild(el);}
+  const stack=[
+    ['v4-system.css','v4-system.js'],
+    ['tech-atlas.css','tech-atlas.js'],
+    ['core-state.css','core-state.js'],
+    ['intro-core.css','intro-core.js'],
+    ['orchestration-lab.css','orchestration-lab.js'],
+    ['orchestration-enhance.css','orchestration-enhance.js'],
+    ['inside-jarvis.css','inside-jarvis.js'],
+    ['concept-lab.css','concept-lab.js'],
+    ['product-suite.css','product-suite.js'],
+    ['memory-interaction.css','memory-interaction.js'],
+    ['atlas-enhance.css','atlas-enhance.js'],
+    ['tech-annotations.css','tech-annotations.js'],
+    ['sound-system.css','sound-system.js'],
+    ['launch-polish.css','launch-polish.js']
+  ];
+  stack.forEach(([css,js])=>{style(css);script(js);});
+})();
