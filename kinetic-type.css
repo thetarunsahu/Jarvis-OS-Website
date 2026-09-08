@@ -1,105 +1,92 @@
-/* Jarvis Kinetic Type System — authored motion grammar for text + scroll */
+/* Jarvis Kinetic Type System — safe motion pass */
 :root{
   --motion-ease:cubic-bezier(.16,1,.3,1);
-  --motion-ease-in:cubic-bezier(.7,0,.84,0);
-  --motion-duration:900ms;
-  --scroll-velocity:0;
-}
-
-html.motion-ready .motion-copy,
-html.motion-ready .motion-heading,
-html.motion-ready .motion-label{
-  will-change:transform,opacity,filter;
+  --motion-duration:760ms;
 }
 
 .motion-clip{overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
 .motion-unit{display:inline-block;will-change:transform,opacity,filter;transform-origin:50% 100%;backface-visibility:hidden}
-.motion-space{white-space:pre}
 
-.motion-heading .motion-word,
-.motion-copy .motion-word{
+/* Signature typography: rich animation only on a few hero-scale statements. */
+.motion-signature .motion-char{
   transition:
-    transform var(--motion-duration) var(--motion-ease),
-    opacity calc(var(--motion-duration)*.78) ease,
-    filter calc(var(--motion-duration)*.85) var(--motion-ease);
-  transition-delay:calc(min(var(--motion-i,0),18)*32ms);
-}
-.motion-heading.motion-future .motion-word{
-  transform:translate3d(0,1.02em,0) rotateX(68deg) skewY(2deg);
-  opacity:0;filter:blur(9px)
-}
-.motion-heading.motion-present .motion-word{transform:translate3d(0,0,0) rotateX(0) skewY(0);opacity:1;filter:blur(0)}
-.motion-heading.motion-past .motion-word{
-  transform:translate3d(0,-.6em,0) rotateX(-36deg);
-  opacity:0;filter:blur(7px);
-  transition-delay:calc(min(var(--motion-i,0),18)*13ms)
-}
-.motion-copy.motion-future .motion-word{transform:translate3d(0,.72em,0);opacity:0;filter:blur(6px)}
-.motion-copy.motion-present .motion-word{transform:translate3d(0,0,0);opacity:1;filter:blur(0)}
-.motion-copy.motion-past .motion-word{transform:translate3d(0,-.42em,0);opacity:0;filter:blur(4px);transition-delay:0ms}
-
-.motion-chars .motion-char{
-  transition:
-    transform 980ms var(--motion-ease),
+    transform 880ms var(--motion-ease),
     opacity 620ms ease,
     filter 760ms var(--motion-ease);
-  transition-delay:calc(min(var(--motion-i,0),28)*22ms)
+  transition-delay:calc(min(var(--motion-i,0),28)*18ms)
 }
-.motion-chars.motion-future .motion-char{transform:translate3d(0,1.15em,0) rotateX(82deg) rotateZ(2deg);opacity:0;filter:blur(12px)}
-.motion-chars.motion-present .motion-char{transform:none;opacity:1;filter:blur(0)}
-.motion-chars.motion-past .motion-char{transform:translate3d(0,-.8em,0) rotateX(-56deg);opacity:0;filter:blur(10px);transition-delay:calc(min(var(--motion-i,0),28)*8ms)}
-
-.motion-label{position:relative;transition:opacity 520ms ease,transform 720ms var(--motion-ease),letter-spacing 850ms var(--motion-ease);will-change:transform,opacity}
-.motion-label::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:linear-gradient(90deg,transparent,rgba(140,183,255,.75),transparent);transform:scaleX(0);transform-origin:left;opacity:.8;transition:transform 900ms var(--motion-ease),opacity 500ms ease}
-.motion-label.motion-future{opacity:0;transform:translate3d(-18px,0,0);letter-spacing:.16em}
-.motion-label.motion-present{opacity:1;transform:none}
-.motion-label.motion-present::after{transform:scaleX(1);opacity:.42}
-.motion-label.motion-past{opacity:0;transform:translate3d(18px,0,0);letter-spacing:.12em}
-
-.section-head.motion-section-head>span{transition:transform 900ms var(--motion-ease),opacity 600ms ease,filter 800ms var(--motion-ease)}
-.section-head.motion-section-head.motion-future>span:first-child{transform:translate3d(-40px,0,0);opacity:0;filter:blur(5px)}
-.section-head.motion-section-head.motion-future>span:last-child{transform:translate3d(40px,0,0);opacity:0;filter:blur(5px)}
-.section-head.motion-section-head.motion-present>span{transform:none;opacity:1;filter:blur(0)}
-.section-head.motion-section-head.motion-past>span:first-child{transform:translate3d(28px,0,0);opacity:0;filter:blur(4px)}
-.section-head.motion-section-head.motion-past>span:last-child{transform:translate3d(-28px,0,0);opacity:0;filter:blur(4px)}
-
-.motion-heading em,.motion-heading .accent,.motion-heading .outline{position:relative}
-.motion-heading.motion-present em::after,
-.motion-heading.motion-present .accent::after{
-  content:"";position:absolute;inset:auto 0 -.04em 0;height:.035em;background:linear-gradient(90deg,transparent,rgba(130,176,255,.72),transparent);transform-origin:left;animation:motionEnergy 1.15s var(--motion-ease) both;pointer-events:none
+.motion-signature.motion-future .motion-char{
+  transform:translate3d(0,.88em,0) rotateX(66deg);
+  opacity:0;
+  filter:blur(9px)
 }
-@keyframes motionEnergy{0%{transform:scaleX(0);opacity:0}35%{opacity:.8}100%{transform:scaleX(1);opacity:.2}}
+.motion-signature.motion-present .motion-char{
+  transform:translate3d(0,0,0) rotateX(0);
+  opacity:1;
+  filter:blur(0)
+}
+.motion-signature.motion-past .motion-char{
+  transform:translate3d(0,-.08em,0);
+  opacity:.82;
+  filter:blur(0);
+  transition-delay:0ms
+}
 
-.motion-velocity-title{transform:skewY(calc(var(--scroll-velocity)*.012deg));letter-spacing:calc(var(--scroll-velocity)*.00018em);transition:letter-spacing 110ms linear}
+/* Normal headings stay intact in the DOM; only the block moves. */
+.motion-heading-safe{
+  transition:transform 760ms var(--motion-ease),opacity 560ms ease,filter 660ms var(--motion-ease);
+  will-change:transform,opacity,filter
+}
+.motion-heading-safe.motion-future{transform:translate3d(0,28px,0) scale(.992);opacity:0;filter:blur(6px)}
+.motion-heading-safe.motion-present{transform:none;opacity:1;filter:blur(0)}
+.motion-heading-safe.motion-past{transform:translate3d(0,-3px,0);opacity:.94;filter:blur(0)}
 
-.motion-stagger-item{transition:transform 900ms var(--motion-ease),opacity 650ms ease,filter 800ms var(--motion-ease);transition-delay:calc(min(var(--motion-order,0),8)*70ms)}
-.motion-stagger-item.motion-future{transform:translate3d(0,34px,0) scale(.985);opacity:0;filter:blur(5px)}
-.motion-stagger-item.motion-present{transform:translate3d(0,0,0) scale(1);opacity:1;filter:blur(0)}
-.motion-stagger-item.motion-past{transform:translate3d(0,-22px,0) scale(.992);opacity:0;filter:blur(3px);transition-delay:0ms}
+/* Body copy gets a soft reveal without per-word DOM surgery. */
+.motion-copy-safe{
+  transition:transform 680ms var(--motion-ease),opacity 520ms ease,filter 600ms var(--motion-ease);
+  will-change:transform,opacity,filter
+}
+.motion-copy-safe.motion-future{transform:translate3d(0,16px,0);opacity:0;filter:blur(4px)}
+.motion-copy-safe.motion-present{transform:none;opacity:1;filter:blur(0)}
+.motion-copy-safe.motion-past{transform:none;opacity:.96;filter:blur(0)}
 
-.kinetic-chapter{position:fixed;inset:0;z-index:95;pointer-events:none;display:grid;place-items:center;opacity:0;visibility:hidden}
-.kinetic-chapter::before{content:"";position:absolute;inset:0;background:rgba(3,5,8,.42);backdrop-filter:blur(3px);transform:scaleY(0);transform-origin:50% 50%}
-.kinetic-chapter-inner{position:relative;width:min(92vw,1320px);display:grid;grid-template-columns:auto 1fr;align-items:end;gap:24px;border-top:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.1);padding:18px 0;transform:translateY(24px);opacity:0}
-.kinetic-chapter-index{font:500 clamp(40px,8vw,112px)/.8 var(--mono);letter-spacing:-.08em;color:rgba(135,180,255,.76)}
-.kinetic-chapter-copy small{display:block;font:8px var(--mono);letter-spacing:.18em;color:var(--muted);margin-bottom:8px}.kinetic-chapter-copy strong{display:block;font:600 clamp(24px,4vw,58px)/.92 var(--sans);letter-spacing:-.055em;text-transform:uppercase}
-.kinetic-chapter.is-showing{visibility:visible;animation:chapterShell 1.05s var(--motion-ease) both}
-.kinetic-chapter.is-showing::before{animation:chapterCurtain 1.05s var(--motion-ease) both}
-.kinetic-chapter.is-showing .kinetic-chapter-inner{animation:chapterInner 1.05s var(--motion-ease) both}
-@keyframes chapterShell{0%{opacity:0}16%,72%{opacity:1}100%{opacity:0}}
-@keyframes chapterCurtain{0%{transform:scaleY(0)}20%,65%{transform:scaleY(1)}100%{transform:scaleY(0)}}
-@keyframes chapterInner{0%{transform:translateY(24px);opacity:0}22%,66%{transform:none;opacity:1}100%{transform:translateY(-18px);opacity:0}}
+/* Section labels arrive from opposite directions, but never disappear once passed. */
+.motion-section-head-safe>span{
+  transition:transform 700ms var(--motion-ease),opacity 520ms ease,filter 600ms var(--motion-ease)
+}
+.motion-section-head-safe.motion-future>span:first-child{transform:translate3d(-24px,0,0);opacity:0;filter:blur(4px)}
+.motion-section-head-safe.motion-future>span:last-child{transform:translate3d(24px,0,0);opacity:0;filter:blur(4px)}
+.motion-section-head-safe.motion-present>span{transform:none;opacity:1;filter:blur(0)}
+.motion-section-head-safe.motion-past>span{transform:none;opacity:.88;filter:blur(0)}
 
-.motion-scene{position:relative}
-.motion-scene::before{content:"";position:absolute;left:0;top:8%;bottom:8%;width:1px;background:linear-gradient(180deg,transparent,rgba(120,169,255,.55),transparent);transform:scaleY(var(--motion-scene-energy,0));transform-origin:center;opacity:calc(var(--motion-scene-energy,0)*.55);pointer-events:none;transition:opacity 180ms linear}
+/* Stagger containers: safe for cards, rails and interactive panels. */
+.motion-stagger-safe{
+  transition:transform 720ms var(--motion-ease),opacity 520ms ease,filter 600ms var(--motion-ease);
+  transition-delay:calc(min(var(--motion-order,0),8)*55ms)
+}
+.motion-stagger-safe.motion-future{transform:translate3d(0,24px,0) scale(.992);opacity:0;filter:blur(4px)}
+.motion-stagger-safe.motion-present{transform:translate3d(0,0,0) scale(1);opacity:1;filter:blur(0)}
+.motion-stagger-safe.motion-past{transform:none;opacity:1;filter:blur(0);transition-delay:0ms}
+
+/* Keep interactive transforms free for the original components. */
+.agent-card.motion-stagger-safe.motion-present,
+.agent-card.motion-stagger-safe.motion-past{transform:none}
 
 @media (prefers-reduced-motion:reduce){
-  .motion-unit,.motion-label,.motion-stagger-item,.section-head.motion-section-head>span{transition:none!important;transform:none!important;opacity:1!important;filter:none!important}
-  .kinetic-chapter{display:none!important}
-  .motion-heading em::after,.motion-heading .accent::after{display:none!important}
+  .motion-unit,
+  .motion-heading-safe,
+  .motion-copy-safe,
+  .motion-section-head-safe>span,
+  .motion-stagger-safe{
+    transition:none!important;
+    transform:none!important;
+    opacity:1!important;
+    filter:none!important
+  }
 }
+
 @media(max-width:760px){
-  .motion-heading .motion-word,.motion-copy .motion-word{transition-delay:calc(min(var(--motion-i,0),12)*18ms)}
-  .motion-chars .motion-char{transition-delay:calc(min(var(--motion-i,0),18)*12ms)}
-  .kinetic-chapter-inner{grid-template-columns:70px 1fr;gap:14px}
-  .motion-scene::before{display:none}
+  .motion-signature .motion-char{transition-delay:calc(min(var(--motion-i,0),18)*10ms)}
+  .motion-heading-safe.motion-future{transform:translate3d(0,18px,0)}
+  .motion-copy-safe.motion-future{transform:translate3d(0,10px,0)}
 }
