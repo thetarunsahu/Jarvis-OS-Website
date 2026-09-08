@@ -62,6 +62,7 @@
     ['sound-system.css','sound-system.js'],
     ['scroll-choreography.css','scroll-choreography.js'],
     ['launch-polish.css','launch-polish.js'],
+    ['signature-experience.css','signature-experience.js'],
     [null,'truth-enhance.js']
   ];
   stack.forEach(([css,js])=>{style(css);script(js);});
