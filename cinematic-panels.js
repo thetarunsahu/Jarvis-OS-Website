@@ -70,3 +70,13 @@ const introCoreScript=document.createElement('script');
 introCoreScript.src='intro-core.js';
 introCoreScript.defer=true;
 document.head.appendChild(introCoreScript);
+
+const orchestrationLabStyle=document.createElement('link');
+orchestrationLabStyle.rel='stylesheet';
+orchestrationLabStyle.href='orchestration-lab.css';
+document.head.appendChild(orchestrationLabStyle);
+
+const orchestrationLabScript=document.createElement('script');
+orchestrationLabScript.src='orchestration-lab.js';
+orchestrationLabScript.defer=true;
+document.head.appendChild(orchestrationLabScript);
