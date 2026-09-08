@@ -60,6 +60,7 @@
     ['atlas-enhance.css','atlas-enhance.js'],
     ['tech-annotations.css','tech-annotations.js'],
     ['sound-system.css','sound-system.js'],
+    ['scroll-choreography.css','scroll-choreography.js'],
     ['launch-polish.css','launch-polish.js']
   ];
   stack.forEach(([css,js])=>{style(css);script(js);});
