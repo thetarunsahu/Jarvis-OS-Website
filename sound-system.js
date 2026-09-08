@@ -1,0 +1,12 @@
+(function(){
+  const $=(s,r=document)=>r.querySelector(s);
+  let ctx=null,enabled=localStorage.getItem('jarvis-sound')==='on',lastState='idle';
+  function ensure(){if(!ctx)ctx=new (window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume();return ctx;}
+  function tone(freq=440,duration=.08,gain=.025,type='sine',delay=0){if(!enabled)return;const c=ensure(),o=c.createOscillator(),g=c.createGain();o.type=type;o.frequency.value=freq;g.gain.setValueAtTime(0,c.currentTime+delay);g.gain.linearRampToValueAtTime(gain,c.currentTime+delay+.01);g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+delay+duration);o.connect(g);g.connect(c.destination);o.start(c.currentTime+delay);o.stop(c.currentTime+delay+duration+.03)}
+  function chord(kind){if(!enabled)return;if(kind==='on'){tone(246,.18,.02,'sine');tone(369,.2,.015,'sine',.05);tone(493,.24,.012,'sine',.1)}else if(kind==='route'){tone(330,.08,.014,'triangle');tone(440,.08,.012,'triangle',.07)}else if(kind==='execute'){tone(180,.12,.018,'sawtooth');tone(260,.12,.01,'triangle',.05)}else if(kind==='verified'){tone(392,.16,.017,'sine');tone(523,.22,.014,'sine',.08);tone(659,.25,.01,'sine',.14)}else tone(300,.06,.01,'sine')}
+  function addToggle(){const host=$('.top-actions');if(!host||$('.sound-toggle',host))return;const b=document.createElement('button');b.type='button';b.className='sound-toggle';b.setAttribute('aria-pressed',String(enabled));b.innerHTML=`<i></i><span>${enabled?'Sound on':'Sound off'}</span>`;host.insertBefore(b,host.lastElementChild);b.addEventListener('click',()=>{enabled=!enabled;localStorage.setItem('jarvis-sound',enabled?'on':'off');b.setAttribute('aria-pressed',String(enabled));$('span',b).textContent=enabled?'Sound on':'Sound off';if(enabled)chord('on')});}
+  function bindClicks(){document.addEventListener('click',e=>{if(!enabled)return;const target=e.target.closest('.hero-cta,[data-atlas-node],[data-suite-tab],[data-concept-tab],[data-route-preset],.boot-replay,.verify-run');if(target&&!target.classList.contains('sound-toggle'))chord('click')},{passive:true});}
+  function bindState(){addEventListener('jarvis:state',e=>{const s=e.detail?.state||'idle';if(s===lastState)return;lastState=s;if(s==='routing')chord('route');if(s==='executing')chord('execute');if(s==='verified')chord('verified')});}
+  function init(){addToggle();bindClicks();bindState()}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
