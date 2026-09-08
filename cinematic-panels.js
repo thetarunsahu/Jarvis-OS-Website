@@ -44,8 +44,8 @@
 (function loadJarvisExperienceStack(){
   const head=document.head;
   const loaded=new Set();
-  function style(href){if(loaded.has(href)||document.querySelector(`link[href="${href}"]`))return;loaded.add(href);const link=document.createElement('link');link.rel='stylesheet';link.href=href;head.appendChild(link);}
-  function script(src){if(loaded.has(src)||document.querySelector(`script[src="${src}"]`))return;loaded.add(src);const el=document.createElement('script');el.src=src;el.async=false;head.appendChild(el);}
+  function style(href){if(!href||loaded.has(href)||document.querySelector(`link[href="${href}"]`))return;loaded.add(href);const link=document.createElement('link');link.rel='stylesheet';link.href=href;head.appendChild(link);}
+  function script(src){if(!src||loaded.has(src)||document.querySelector(`script[src="${src}"]`))return;loaded.add(src);const el=document.createElement('script');el.src=src;el.async=false;head.appendChild(el);}
   const stack=[
     ['v4-system.css','v4-system.js'],
     ['tech-atlas.css','tech-atlas.js'],
@@ -61,7 +61,8 @@
     ['tech-annotations.css','tech-annotations.js'],
     ['sound-system.css','sound-system.js'],
     ['scroll-choreography.css','scroll-choreography.js'],
-    ['launch-polish.css','launch-polish.js']
+    ['launch-polish.css','launch-polish.js'],
+    [null,'truth-enhance.js']
   ];
   stack.forEach(([css,js])=>{style(css);script(js);});
 })();
