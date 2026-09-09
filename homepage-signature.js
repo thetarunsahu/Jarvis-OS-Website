@@ -116,11 +116,27 @@
     const hero = $('.hero');
     if(hero && !$('.hero-lab-gateway',hero)){
       const gateway=document.createElement('aside');gateway.className='hero-lab-gateway';
-      gateway.innerHTML='<a href="lab.html"><small>SYSTEMS LAB / EXPERIMENTAL LAYER</small><strong>Go inside Jarvis.</strong><p>Orchestration · AI systems · memory · product concepts</p><span class="lab-gateway-arrow" aria-hidden="true">↗</span></a>';
+      gateway.innerHTML='<a href="systems-lab.html"><small>SYSTEMS LAB / EXPERIMENTAL LAYER</small><strong>Go inside Jarvis.</strong><p>Orchestration · AI systems · memory · product concepts</p><span class="lab-gateway-arrow" aria-hidden="true">↗</span></a>';
       hero.appendChild(gateway);
     }
     const link=$('.lab-link');
-    if(link){ link.setAttribute('aria-label','Open the Jarvis Systems Lab with interactive architecture and AI experiments'); }
+    if(link){ link.setAttribute('aria-label','Open the Jarvis Systems Lab gateway'); }
+  }
+
+  function routeLabGateway(){
+    document.addEventListener('click',event=>{
+      const link=event.target.closest('a[href="lab.html"]');
+      if(!link)return;
+      event.preventDefault();
+      location.href='systems-lab.html';
+    });
+    addEventListener('keydown',event=>{
+      if(event.key.toLowerCase()!=='l'||event.ctrlKey||event.metaKey||event.altKey)return;
+      if(/input|textarea|select/i.test(document.activeElement?.tagName))return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      location.href='systems-lab.html';
+    },true);
   }
 
   function keyboardReplay(){
@@ -133,7 +149,7 @@
   }
 
   function init(){
-    featureLab(); keyboardReplay();
+    featureLab(); routeLabGateway(); keyboardReplay();
     requestAnimationFrame(()=>playIntro(false));
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true}); else init();
