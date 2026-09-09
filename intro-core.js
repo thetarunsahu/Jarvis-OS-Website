@@ -152,7 +152,7 @@
   function init(){
     replaceHeroCore();
     addReplayControl();
-    playIntro(false);
+    if (!document.body.classList.contains("systems-lab")) playIntro(false);
     addEventListener('keydown',event=>{
       if((event.key==='b'||event.key==='B')&&!/input|textarea/i.test(document.activeElement?.tagName)){
         event.preventDefault();

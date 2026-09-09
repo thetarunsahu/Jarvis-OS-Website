@@ -1,356 +1,162 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#050607" />
-  <meta name="description" content="Jarvis OS — a personal AI operating layer for context, continuity, agents, voice, files and tools." />
-  <title>Jarvis OS — Intelligence that lives with you.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08090b">
+  <meta name="description" content="Jarvis OS is a personal AI operating layer built around your work. Explore a vision for persistent context, specialist agents, and one continuous workspace.">
+  <title>Jarvis OS — Your second mind.</title>
+  <link rel="icon" type="image/svg+xml" href="assets/jarvis-sigil.svg">
+  <link rel="manifest" href="site.webmanifest">
+  <meta property="og:title" content="Jarvis OS — Your second mind.">
+  <meta property="og:description" content="Your projects. Your context. One continuous thread. Explore the Jarvis OS product concept.">
+  <meta property="og:image" content="assets/jarvis-social-card.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="experience.css">
+  <script src="core-3d.js" defer></script>
+  <script src="experience.js" defer></script>
 </head>
 <body>
-  <div class="boot" data-boot aria-hidden="true">
-    <div class="boot-grid"></div>
-    <div class="boot-inner">
-      <div class="boot-top"><span>JARVIS / OS</span><span data-boot-percent>00%</span></div>
-      <div class="boot-word">INITIALIZING</div>
-      <div class="boot-track"><span data-boot-track></span></div>
-      <div class="boot-log" data-boot-log>Loading interface layer...</div>
-    </div>
-  </div>
-
-  <div class="ambient" aria-hidden="true">
-    <div class="ambient-grid"></div>
-    <div class="ambient-glow glow-a"></div>
-    <div class="ambient-glow glow-b"></div>
-    <div class="scanline"></div>
-  </div>
-
-  <div class="noise" aria-hidden="true"></div>
-  <div class="progress"><span data-progress></span></div>
-  <div class="cursor" data-cursor><span></span><em data-cursor-label></em></div>
-
-  <header class="topbar" data-header>
-    <a class="brand magnetic" href="#top" data-magnetic>
-      <span class="brand-orb"><i></i><i></i><i></i></span>
-      <span class="brand-text">JARVIS<small>/OS</small></span>
-    </a>
-
-    <div class="system-state">
-      <span class="live-dot"></span>
-      <span>PROTOTYPE / BUILD 0.2</span>
-      <span class="system-clock" data-clock>--:--:--</span>
-    </div>
-
-    <div class="top-actions">
-      <button class="command-trigger magnetic" type="button" data-command-open data-magnetic>
-        <span>Command</span><kbd>J</kbd>
-      </button>
-      <button class="menu-trigger magnetic" type="button" data-menu-open data-magnetic aria-expanded="false">
-        <span>Menu</span><i></i>
-      </button>
-    </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
+  <header class="site-nav" id="site-nav">
+    <a href="#top" class="wordmark" aria-label="Jarvis OS home"><span class="brand-symbol" aria-hidden="true">J</span>JARVIS<span class="wordmark-os">/ OS</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#vision">Vision</a><a href="#experience">Experience</a><a href="#system">System</a><a href="lab.html">Systems lab <span aria-hidden="true">↗</span></a>
+    </nav>
+    <div class="nav-actions"><span class="dev-status"><i aria-hidden="true"></i>In development</span><button class="nav-command" data-open-command aria-label="Open Jarvis command demo"><span>Enter Jarvis</span><kbd>J</kbd></button><button class="mobile-menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-controls="mobile-menu">☰</button></div>
   </header>
-
-  <aside class="nav-drawer" data-menu aria-hidden="true">
-    <div class="drawer-backdrop" data-menu-close></div>
-    <div class="drawer-panel">
-      <div class="drawer-head"><span>JARVIS / NAV</span><button type="button" data-menu-close>Close ×</button></div>
-      <nav>
-        <a href="#manifesto" data-menu-link><span>01</span><strong>Manifesto</strong><em>↗</em></a>
-        <a href="#experience" data-menu-link><span>02</span><strong>Experience</strong><em>↗</em></a>
-        <a href="#agents" data-menu-link><span>03</span><strong>Agents</strong><em>↗</em></a>
-        <a href="#memory" data-menu-link><span>04</span><strong>Continuity</strong><em>↗</em></a>
-        <a href="#system" data-menu-link><span>05</span><strong>System</strong><em>↗</em></a>
-        <a href="#roadmap" data-menu-link><span>06</span><strong>Roadmap</strong><em>↗</em></a>
-      </nav>
-      <div class="drawer-foot">
-        <p>One interface.<br />Many intelligences.</p>
-        <a href="https://github.com/thetarunsahu/Jarvis-OS" target="_blank" rel="noreferrer">GitHub ↗</a>
-      </div>
-    </div>
-  </aside>
-
-  <div class="command-center" data-command-center aria-hidden="true">
-    <div class="command-backdrop" data-command-close></div>
-    <div class="command-shell">
-      <div class="command-shell-head">
-        <div><span class="live-dot"></span> JARVIS COMMAND CENTER</div>
-        <button type="button" data-command-close>ESC / CLOSE</button>
-      </div>
-      <div class="command-dialogue">
-        <span class="command-label">WHAT DO YOU WANT TO DO?</span>
-        <form data-command-form class="command-form">
-          <span>›</span>
-          <input data-command-input autocomplete="off" spellcheck="false" placeholder="Continue my work from yesterday..." />
-          <button type="submit">RUN ↗</button>
-        </form>
-        <div class="command-suggestions">
-          <button type="button" data-command="Continue Jarvis OS from our last decision">Continue my project</button>
-          <button type="button" data-command="Find the files related to my robot project">Find project files</button>
-          <button type="button" data-command="Plan my day around college and development work">Plan my day</button>
-          <button type="button" data-command="Summarize what changed since my last session">What changed?</button>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-topline"><span class="eyebrow">PERSONAL AI OPERATING LAYER</span><span class="eyebrow hero-edition">CONCEPT SERIES — 001</span></div>
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <h1 id="hero-title"><span class="line"><span>Your</span></span><span class="line"><span>second</span></span><span class="line"><span class="soft-type">mind.</span></span></h1>
+          <p class="hero-description">A computer that understands<br class="desktop-break"> what you're building.</p>
+          <div class="hero-links"><a class="button button-light" href="#experience">Experience Jarvis <span aria-hidden="true">↗</span></a><a class="text-link" href="#vision">Meet the idea <span aria-hidden="true">↓</span></a></div>
         </div>
-        <div class="jarvis-response" data-response>
-          <div class="response-visual"><canvas data-waveform></canvas></div>
-          <div class="response-copy">
-            <div class="response-meta"><span>JARVIS</span><span data-response-state>STANDING BY</span></div>
-            <p data-response-text>Context layer ready. Give me a goal, not a sequence of apps.</p>
-            <div class="response-steps" data-response-steps></div>
-          </div>
+        <div class="core-stage" id="core-stage">
+          <div class="core-fallback" aria-hidden="true"><span>J</span></div>
+          <canvas id="jarvis-core" aria-label="Interactive rotating three-dimensional Jarvis core. Use the arrow buttons to rotate it." role="img"></canvas>
+          <div class="core-annotation annotation-top"><span class="tiny-cross" aria-hidden="true">+</span><div><span class="eyebrow">JARVIS CORE</span><span>Intelligence, connected.</span></div></div>
+          <div class="core-annotation annotation-bottom"><span class="core-pulse" aria-hidden="true"></span><span id="core-state">Awaiting your intent</span></div>
+          <div class="core-controls"><button id="rotate-left" aria-label="Rotate 3D core left">←</button><span class="eyebrow">DRAG TO EXPLORE</span><button id="rotate-right" aria-label="Rotate 3D core right">→</button></div>
         </div>
       </div>
-      <div class="command-foot"><span>SIMULATED PRODUCT EXPERIENCE</span><span>PRESS J ANYWHERE</span></div>
-    </div>
-  </div>
-
-  <main id="top">
-    <section class="hero section-pad">
-      <canvas class="neural-canvas" data-neural-canvas aria-hidden="true"></canvas>
-      <div class="hero-ruler ruler-top"><span>00</span><span>20</span><span>40</span><span>60</span><span>80</span><span>100</span></div>
-
-      <div class="hero-meta reveal">
-        <span>PERSONAL AI OPERATING LAYER</span>
-        <span>CONTEXT / MEMORY / AGENTS / TOOLS</span>
-      </div>
-
-      <div class="hero-title" data-hero-title>
-        <p class="hero-kicker reveal">YOUR COMPUTER HAS ENOUGH APPS.</p>
-        <h1>
-          <span class="line line-a reveal-text">IT NEEDS</span>
-          <span class="line outline reveal-text">CONTEXT.</span>
-          <span class="line accent reveal-text">IT NEEDS JARVIS.</span>
-        </h1>
-      </div>
-
-      <div class="hero-bottom reveal">
-        <p class="hero-description">A personal AI system designed to understand your work, remember where you stopped, route goals to specialist agents and act across the tools you already use.</p>
-        <button class="hero-cta magnetic" type="button" data-command-open data-magnetic data-cursor-text="ENTER">
-          <span class="cta-orb"><i></i></span>
-          <span>Enter Jarvis</span>
-          <em>↗</em>
-        </button>
-      </div>
-
-      <div class="hero-core" aria-hidden="true" data-hero-core>
-        <div class="core-ring ring-1"></div>
-        <div class="core-ring ring-2"></div>
-        <div class="core-ring ring-3"></div>
-        <div class="core-ring ring-4"></div>
-        <div class="core-center"><span>J</span><small>ONLINE</small></div>
-        <div class="core-label label-a">MEMORY</div>
-        <div class="core-label label-b">AGENTS</div>
-        <div class="core-label label-c">TOOLS</div>
-      </div>
-
-      <a href="#manifesto" class="scroll-down" data-cursor-text="SCROLL"><span>Scroll to enter</span><i>↓</i></a>
+      <div class="hero-foot"><a href="#vision" class="scroll-note"><span class="scroll-track" aria-hidden="true"></span>Scroll to discover</a><span class="hero-foot-note">Your work. Your context. One continuous thread.</span><span class="eyebrow">01 — 06</span></div>
     </section>
 
-    <section class="ticker" aria-label="Jarvis principles">
-      <div class="ticker-track">
-        <span>NO CONTEXT RESET</span><i>✦</i><span>NO APP HUNTING</span><i>✦</i><span>NO RE-EXPLAINING</span><i>✦</i><span>ONE CONTINUOUS THREAD</span><i>✦</i>
-        <span>NO CONTEXT RESET</span><i>✦</i><span>NO APP HUNTING</span><i>✦</i><span>NO RE-EXPLAINING</span><i>✦</i><span>ONE CONTINUOUS THREAD</span><i>✦</i>
-      </div>
-    </section>
-
-    <section class="manifesto section-pad" id="manifesto">
-      <div class="section-head reveal"><span>01 / MANIFESTO</span><span>THE PROBLEM ISN'T AI. IT'S FRAGMENTATION.</span></div>
-      <div class="manifesto-copy">
-        <p class="manifesto-line reveal-text">EVERY APP KNOWS</p>
-        <p class="manifesto-line outline reveal-text">A PIECE OF YOU.</p>
-        <p class="manifesto-line reveal-text">NONE OF THEM KNOW</p>
-        <p class="manifesto-line accent reveal-text">WHAT YOU'RE BUILDING.</p>
-      </div>
-      <div class="manifesto-note reveal">
-        <span>THE RESET LOOP</span>
-        <p>Open. Search. Reconstruct. Explain. Switch. Repeat.</p>
-        <strong>Jarvis is being designed to collapse that loop into one continuous relationship with your computer.</strong>
-      </div>
-    </section>
-
-    <section class="experience section-pad" id="experience">
-      <div class="section-head reveal"><span>02 / EXPERIENCE</span><span>FROM INTENT → CONTEXT → ACTION</span></div>
-      <div class="experience-layout">
-        <div class="experience-copy">
-          <div class="experience-step active" data-experience-step="0">
-            <span>01</span><div><small>SAY THE GOAL</small><h2>Don't navigate.<br /><em>Ask.</em></h2><p>Start with what you want to achieve, not which app you think can do it.</p></div>
-          </div>
-          <div class="experience-step" data-experience-step="1">
-            <span>02</span><div><small>RESTORE CONTEXT</small><h2>It remembers<br /><em>the thread.</em></h2><p>Project state, recent decisions, relevant files and unresolved work are brought back together.</p></div>
-          </div>
-          <div class="experience-step" data-experience-step="2">
-            <span>03</span><div><small>ROUTE THE WORK</small><h2>Specialists<br /><em>take over.</em></h2><p>Jarvis chooses the right agent or tool while keeping the result inside one coherent experience.</p></div>
-          </div>
-          <div class="experience-step" data-experience-step="3">
-            <span>04</span><div><small>PRESERVE STATE</small><h2>Tomorrow starts<br /><em>here.</em></h2><p>The useful state survives the session so progress continues instead of restarting.</p></div>
-          </div>
+    <section class="vision section-wrap" id="vision" aria-labelledby="vision-title">
+      <div class="section-label"><span>01 / THE IDEA</span><span>LESS FRICTION. MORE FLOW.</span></div>
+      <div class="vision-grid">
+        <div class="vision-heading"><h2 id="vision-title" data-reveal>Every app knows<br>a piece of you.<br><span class="muted">Jarvis connects<br>the whole picture.</span></h2></div>
+        <div class="vision-detail">
+          <p data-reveal>You have the tools. The missing piece is the context between them.</p>
+          <p class="secondary" data-reveal>Jarvis OS is being built as a personal intelligence layer: one place to bring together your projects, decisions, files, and next steps.</p>
+          <div class="context-list" data-reveal><div><span class="context-index">01</span><span>Understand the intent</span><span aria-hidden="true">↗</span></div><div><span class="context-index">02</span><span>Restore the context</span><span aria-hidden="true">↗</span></div><div><span class="context-index">03</span><span>Move the work forward</span><span aria-hidden="true">↗</span></div></div>
         </div>
+      </div>
+      <div class="principle-band" data-reveal><span>ONE INTERFACE</span><span aria-hidden="true">+</span><span>MANY INTELLIGENCES</span><span aria-hidden="true">=</span><strong>YOUR FLOW, UNINTERRUPTED.</strong></div>
+    </section>
 
-        <div class="experience-stage reveal" data-experience-stage>
-          <div class="stage-top"><span>JARVIS / LIVE THREAD</span><span class="live-dot"></span></div>
-          <div class="stage-screen">
-            <div class="stage-grid"></div>
-            <div class="stage-prompt" data-stage-prompt>“Continue Jarvis OS from where we stopped.”</div>
-            <div class="stage-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
-            <div class="stage-nodes" data-stage-nodes>
-              <div class="stage-node primary"><small>CONTEXT</small><b>Jarvis-OS</b><span>Restored</span></div>
-              <div class="stage-node n1"><small>MEMORY</small><b>18 decisions</b></div>
-              <div class="stage-node n2"><small>FILES</small><b>12 relevant</b></div>
-              <div class="stage-node n3"><small>NEXT</small><b>Website V2</b></div>
+    <section class="experience section-wrap" id="experience" aria-labelledby="experience-title">
+      <div class="section-label"><span>02 / THE EXPERIENCE</span><span>INTERACTIVE PRODUCT CONCEPT</span></div>
+      <div class="section-intro"><h2 id="experience-title" data-reveal>Start with a thought.<br><span class="muted">Stay in your flow.</span></h2><p data-reveal>Give Jarvis a goal. Explore how context, specialists, and tools could work together.</p></div>
+      <div class="workspace-perspective" data-reveal>
+        <div class="workspace" id="workspace">
+          <div class="workspace-chrome"><div class="window-controls" aria-hidden="true"><i></i><i></i><i></i></div><span>JARVIS / WORKSPACE</span><span class="concept-tag">CONCEPT UI</span></div>
+          <div class="workspace-body">
+            <aside class="workspace-sidebar" aria-label="Demo workspace">
+              <span class="sidebar-caption">YOUR SPACE</span>
+              <div class="workspace-tabs" role="tablist" aria-label="Workspace views" aria-orientation="vertical">
+                <button id="tab-overview" class="active" role="tab" aria-selected="true" aria-controls="workspace-panel" data-view="overview"><span aria-hidden="true">◈</span>Overview</button>
+                <button id="tab-projects" role="tab" aria-selected="false" aria-controls="workspace-panel" tabindex="-1" data-view="projects"><span aria-hidden="true">▱</span>Projects</button>
+                <button id="tab-memory" role="tab" aria-selected="false" aria-controls="workspace-panel" tabindex="-1" data-view="memory"><span aria-hidden="true">◎</span>Memory</button>
+                <button id="tab-agents" role="tab" aria-selected="false" aria-controls="workspace-panel" tabindex="-1" data-view="agents"><span aria-hidden="true">✳</span>Agents</button>
+              </div>
+              <div class="sidebar-projects"><span class="sidebar-caption">RECENT THREADS</span><button data-prompt="Continue my Jarvis OS project"><i class="project-square"></i>Jarvis OS</button><button data-prompt="Find the files for my robot project"><i class="project-square square-alt"></i>Robotics project</button></div>
+              <div class="sidebar-profile"><span class="avatar">T</span><div>Tarun's workspace<small>Demo environment</small></div></div>
+            </aside>
+            <div class="workspace-panel" id="workspace-panel" role="tabpanel" aria-labelledby="tab-overview" tabindex="0">
+              <div class="workspace-greeting"><span class="eyebrow">A THREAD WORTH CONTINUING</span><h3>Welcome back, Tarun.</h3><p>You left an idea in motion.<br>Let's pick it up.</p></div>
+              <div class="resume-card"><div><span class="eyebrow">LAST OPEN PROJECT</span><h4>Jarvis OS</h4><p>A personal operating layer, built around you.</p></div><button class="round-button" data-prompt="Continue my Jarvis OS project" aria-label="Resume Jarvis OS demo">↗</button><div class="resume-foot"><span>Design direction saved</span><span>Context ready</span></div></div>
+              <div class="workspace-bottom"><span>One workspace. A continuous thread.</span><span aria-hidden="true">J / OS</span></div>
             </div>
           </div>
-          <div class="stage-foot"><span>SIMULATED INTERACTION</span><span data-stage-index>01 / 04</span></div>
+          <div class="demo-console" id="demo-console">
+            <div class="demo-output" id="demo-output" aria-live="polite" aria-atomic="true"><span class="mini-sigil" aria-hidden="true">J</span><div><span class="eyebrow" id="demo-status">READY WHEN YOU ARE</span><p id="demo-response">What would you like to move forward?</p></div></div>
+            <ol class="execution-track" id="execution-track" aria-label="Demo execution stages"><li data-step="0">Intent</li><li data-step="1">Context</li><li data-step="2">Specialist</li><li data-step="3">Result</li></ol>
+            <form id="demo-form" class="prompt-form"><label class="sr-only" for="demo-input">Give Jarvis a goal</label><span class="prompt-symbol" aria-hidden="true">↳</span><input id="demo-input" name="goal" placeholder="Continue my work from yesterday…" autocomplete="off" maxlength="400" required><button type="submit" aria-label="Run the Jarvis demo" id="demo-submit">↗</button></form>
+            <div class="prompt-presets"><button data-prompt="Continue my Jarvis OS project">Continue a project</button><button data-prompt="Research what I need for my SIH project">Research an idea</button><button data-prompt="Find the files for my robot project">Find a file</button></div>
+          </div>
         </div>
       </div>
+      <p class="demo-disclosure">A scripted demonstration of the vision. No AI model is connected and no personal files are accessed.</p>
     </section>
 
-    <section class="agents section-pad" id="agents">
-      <div class="section-head reveal"><span>03 / AGENT SYSTEM</span><span>JARVIS IS THE FRONT DOOR</span></div>
-      <div class="agents-intro reveal">
-        <h2>ONE VOICE.<br />MULTIPLE<br /><em>MINDS.</em></h2>
-        <p>You shouldn't have to choose the perfect AI, model or workflow before you can start. Jarvis receives the goal and coordinates specialists behind the scenes.</p>
-      </div>
-
-      <div class="agent-rail" data-agent-rail>
-        <article class="agent-card tilt reveal" data-tilt>
-          <div class="agent-card-top"><span>A/01</span><span>TARGET CAPABILITY</span></div>
-          <div class="agent-icon">&lt;/&gt;</div>
-          <h3>Builder</h3>
-          <p>Turns intent into implementation, checks what changed and returns evidence instead of vague completion.</p>
-          <div class="agent-skills"><span>CODE</span><span>DEBUG</span><span>VERIFY</span></div>
-        </article>
-        <article class="agent-card tilt reveal" data-tilt>
-          <div class="agent-card-top"><span>A/02</span><span>TARGET CAPABILITY</span></div>
-          <div class="agent-icon">⌕</div>
-          <h3>Researcher</h3>
-          <p>Collects current information, compares sources and produces decision-ready context tied back to the project.</p>
-          <div class="agent-skills"><span>SEARCH</span><span>COMPARE</span><span>CITE</span></div>
-        </article>
-        <article class="agent-card tilt reveal" data-tilt>
-          <div class="agent-card-top"><span>A/03</span><span>TARGET CAPABILITY</span></div>
-          <div class="agent-icon">✦</div>
-          <h3>Designer</h3>
-          <p>Transforms rough product intent into interfaces, systems, flows and visual directions that can actually be built.</p>
-          <div class="agent-skills"><span>UI</span><span>FLOW</span><span>VISUAL</span></div>
-        </article>
-        <article class="agent-card tilt reveal" data-tilt>
-          <div class="agent-card-top"><span>A/04</span><span>TARGET CAPABILITY</span></div>
-          <div class="agent-icon">◫</div>
-          <h3>Archivist</h3>
-          <p>Finds the right files, links related work and keeps the useful history of a project available when it matters.</p>
-          <div class="agent-skills"><span>FILES</span><span>MEMORY</span><span>RECALL</span></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="memory section-pad" id="memory">
-      <div class="section-head reveal"><span>04 / CONTINUITY</span><span>THE PART CHATBOTS KEEP LOSING</span></div>
-      <div class="memory-stage">
-        <div class="memory-copy reveal">
-          <p class="micro-label">SESSION CONTINUITY</p>
-          <h2>CLOSE IT<br />TONIGHT.<br /><em>RESUME HERE.</em></h2>
-          <p>Jarvis is being designed around persistent working context: what changed, what was decided, what remains blocked and what the next useful action is.</p>
-        </div>
-
-        <div class="memory-timeline reveal">
-          <div class="memory-line"><i></i></div>
-          <article class="memory-event past">
-            <time>23:48 / YESTERDAY</time>
-            <span class="memory-dot"></span>
-            <div><small>SESSION SAVED</small><h3>Architecture direction locked.</h3><p>Last decision: keep the desktop shell separate from the agent runtime.</p></div>
-          </article>
-          <article class="memory-event now">
-            <time>04:32 / TODAY</time>
-            <span class="memory-dot"></span>
-            <div><small>RESUME POINT</small><h3>Continue the website.</h3><p>4 files changed · visual system ready · next: interaction pass.</p><button type="button" data-command-open>Continue from here ↗</button></div>
-          </article>
-          <article class="memory-event future">
-            <time>NEXT</time>
-            <span class="memory-dot"></span>
-            <div><small>PROPOSED ACTION</small><h3>Connect real product states.</h3><p>Replace simulated website data with live Jarvis OS progress as the system matures.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="break-section">
-      <div class="break-copy" data-break-copy>
-        <span>YOU DON'T NEED</span>
-        <span class="outline">ANOTHER CHATBOT.</span>
-        <span class="accent">YOU NEED A SYSTEM.</span>
-      </div>
-    </section>
-
-    <section class="system section-pad" id="system">
-      <div class="section-head reveal"><span>05 / SYSTEM SHAPE</span><span>NOT ONE MODEL. AN ORCHESTRATED LAYER.</span></div>
-      <div class="system-grid">
-        <div class="system-map reveal" data-system-map>
-          <svg class="system-lines" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M500 350 C340 350 300 160 155 160" />
-            <path d="M500 350 C680 350 720 150 860 150" />
-            <path d="M500 350 C320 350 285 540 145 540" />
-            <path d="M500 350 C675 350 730 545 875 545" />
-          </svg>
-          <div class="system-node center"><div class="node-orbit"></div><span>JARVIS</span><small>ORCHESTRATOR</small></div>
-          <div class="system-node node-context"><span>CONTEXT</span><small>PROJECT STATE</small></div>
-          <div class="system-node node-memory"><span>MEMORY</span><small>CONTINUITY</small></div>
-          <div class="system-node node-agents"><span>AGENTS</span><small>SPECIALISTS</small></div>
-          <div class="system-node node-tools"><span>TOOLS</span><small>ACTIONS</small></div>
-          <div class="data-packet packet-1"></div><div class="data-packet packet-2"></div><div class="data-packet packet-3"></div>
-        </div>
-        <div class="system-copy reveal">
-          <span class="micro-label">ARCHITECTURE DIRECTION</span>
-          <h2>THE MODEL IS<br />NOT THE<br /><em>PRODUCT.</em></h2>
-          <p>The product is the layer that knows the task, selects the intelligence, grants the right tool, preserves context and makes the result feel like one continuous system.</p>
-          <div class="system-list">
-            <div><span>01</span><p><b>Intent layer</b><small>Understand the goal, not just the sentence.</small></p></div>
-            <div><span>02</span><p><b>Context layer</b><small>Assemble the project state and relevant memory.</small></p></div>
-            <div><span>03</span><p><b>Agent layer</b><small>Route specialized work and coordinate outputs.</small></p></div>
-            <div><span>04</span><p><b>Action layer</b><small>Operate tools with explicit boundaries and evidence.</small></p></div>
+    <section class="continuity" id="memory" aria-labelledby="memory-title">
+      <div class="section-wrap">
+        <div class="section-label"><span>03 / CONTINUITY</span><span>THE THREAD STAYS WITH YOU</span></div>
+        <div class="continuity-grid">
+          <div><h2 id="memory-title" data-reveal>You closed<br>the laptop.<br><span class="light-muted">The context<br>didn't.</span></h2><p class="continuity-description" data-reveal>The last decision. The right files. The next useful step. A vision for work that survives the end of a session.</p></div>
+          <div class="memory-stack" data-reveal>
+            <div class="stack-under stack-under-two" aria-hidden="true"></div><div class="stack-under" aria-hidden="true"></div>
+            <div class="memory-card">
+              <div class="memory-card-head"><span class="memory-glyph" aria-hidden="true">◎</span><span>PROJECT MEMORY</span><span class="concept-tag">CONCEPT</span></div>
+              <h3>Jarvis OS</h3><p class="memory-subtitle">Your work, remembered.</p>
+              <div class="memory-tabs" role="tablist" aria-label="Project memory"><button role="tab" id="memory-decision" aria-controls="memory-detail" aria-selected="true" class="active" data-memory="decision">Decision</button><button role="tab" id="memory-files" aria-controls="memory-detail" aria-selected="false" tabindex="-1" data-memory="files">Files</button><button role="tab" id="memory-next" aria-controls="memory-detail" aria-selected="false" tabindex="-1" data-memory="next">Next step</button></div>
+              <div id="memory-detail" class="memory-detail" role="tabpanel" aria-labelledby="memory-decision" tabindex="0"><span class="eyebrow">LAST DECISION</span><p>Keep the desktop shell separate from the agent runtime.</p><span class="memory-context">Architecture / saved context</span></div>
+              <button class="memory-resume" data-prompt="Continue my Jarvis OS project">Pick up the thread <span aria-hidden="true">↗</span></button>
+            </div>
+            <div class="memory-caption"><span aria-hidden="true">↳</span>Progress shouldn't need reintroductions.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="roadmap section-pad" id="roadmap">
-      <div class="section-head reveal"><span>06 / BUILD IN PUBLIC</span><span>VISION ≠ COMPLETED FEATURE</span></div>
-      <div class="roadmap-head reveal">
-        <h2>BUILD THE<br /><em>SYSTEM.</em><br />SHOW THE WORK.</h2>
-        <p>This site intentionally separates what exists today from the direction Jarvis OS is moving toward.</p>
+    <section class="system section-wrap" id="system" aria-labelledby="system-title">
+      <div class="section-label"><span>04 / COORDINATED INTELLIGENCE</span><span>TARGET CAPABILITIES</span></div>
+      <div class="section-intro"><h2 id="system-title" data-reveal>One voice.<br><span class="muted">A collective mind.</span></h2><p data-reveal>Start with the goal. Jarvis is designed to bring the right specialist into the same thread.</p></div>
+      <div class="agent-grid">
+        <button class="agent-card" data-agent="builder" data-reveal aria-pressed="true"><span class="agent-number">01 / BUILD</span><span class="agent-mark" aria-hidden="true">⌘</span><h3>The Builder</h3><p>From a rough idea to an implementation you can inspect.</p><span class="agent-footer">Code · Debug · Verify <span aria-hidden="true">↗</span></span></button>
+        <button class="agent-card" data-agent="researcher" data-reveal aria-pressed="false"><span class="agent-number">02 / DISCOVER</span><span class="agent-mark" aria-hidden="true">⌕</span><h3>The Researcher</h3><p>Find the information that moves a decision forward.</p><span class="agent-footer">Search · Compare · Cite <span aria-hidden="true">↗</span></span></button>
+        <button class="agent-card" data-agent="designer" data-reveal aria-pressed="false"><span class="agent-number">03 / CREATE</span><span class="agent-mark" aria-hidden="true">✳</span><h3>The Designer</h3><p>Turn product intent into a clear, considered experience.</p><span class="agent-footer">Interface · Flow · Form <span aria-hidden="true">↗</span></span></button>
+        <button class="agent-card" data-agent="archivist" data-reveal aria-pressed="false"><span class="agent-number">04 / CONNECT</span><span class="agent-mark" aria-hidden="true">◫</span><h3>The Archivist</h3><p>Bring the useful history of a project back into view.</p><span class="agent-footer">Files · Memory · Recall <span aria-hidden="true">↗</span></span></button>
       </div>
-      <div class="roadmap-list">
-        <article class="roadmap-item reveal"><span class="roadmap-no">01</span><div><small>NOW</small><h3>Product shell + experience language</h3></div><span class="status current">IN DEVELOPMENT</span></article>
-        <article class="roadmap-item reveal"><span class="roadmap-no">02</span><div><small>NEXT</small><h3>Persistent project context</h3></div><span class="status">PLANNED</span></article>
-        <article class="roadmap-item reveal"><span class="roadmap-no">03</span><div><small>NEXT</small><h3>Agent routing + tool execution</h3></div><span class="status">PLANNED</span></article>
-        <article class="roadmap-item reveal"><span class="roadmap-no">04</span><div><small>LATER</small><h3>Voice-first desktop interaction</h3></div><span class="status">VISION</span></article>
-        <article class="roadmap-item reveal"><span class="roadmap-no">05</span><div><small>LATER</small><h3>Cross-session continuity</h3></div><span class="status">VISION</span></article>
-      </div>
+      <div class="agent-detail" aria-live="polite"><div><span class="eyebrow">A POSSIBLE HANDOFF</span><p id="agent-example">“Continue yesterday's branch and help me debug the next step.”</p></div><button class="text-link" id="agent-try">Try this thought <span aria-hidden="true">↗</span></button></div>
+      <a class="lab-link" href="lab.html"><div><span class="eyebrow">FOR THE CURIOUS</span><h3>Go inside the system.</h3><p>Architecture, memory, voice, and hands-on AI learning demos.</p></div><span class="lab-link-arrow" aria-hidden="true">↗</span></a>
     </section>
 
-    <section class="finale section-pad">
-      <canvas class="finale-canvas" data-finale-canvas aria-hidden="true"></canvas>
-      <div class="finale-top reveal"><span>JARVIS / OS</span><span>PERSONAL INTELLIGENCE LAYER</span></div>
-      <div class="finale-copy reveal-text">
-        <span>STOP</span>
-        <span class="outline">MANAGING</span>
-        <span class="accent">YOUR COMPUTER.</span>
-      </div>
-      <div class="finale-bottom reveal">
-        <p>Build a computer that can finally help manage the work with you.</p>
-        <button class="finale-button magnetic" type="button" data-command-open data-magnetic><span>Talk to Jarvis</span><em>↗</em></button>
-      </div>
+    <section class="roadmap section-wrap" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="section-label"><span>05 / BUILT IN THE OPEN</span><span>AMBITION, WITH HONESTY.</span></div>
+      <div class="roadmap-layout"><div><h2 id="roadmap-title" data-reveal>A work<br><span class="muted">in progress.</span></h2><p data-reveal>Jarvis is a product being built, with a direction worth exploring. Here's where it stands.</p><a class="text-link" href="https://github.com/thetarunsahu/Jarvis-OS" target="_blank" rel="noopener noreferrer">Follow the build on GitHub <span aria-hidden="true">↗</span></a></div>
+      <div class="roadmap-rows">
+        <div class="roadmap-row" data-reveal><span class="roadmap-index">01</span><div><span class="eyebrow">TAKING SHAPE</span><h3>Desktop shell & experience</h3></div><span class="stage-badge active-badge">In development</span></div>
+        <div class="roadmap-row" data-reveal><span class="roadmap-index">02</span><div><span class="eyebrow">NEXT</span><h3>Persistent project context</h3></div><span class="stage-badge">Planned</span></div>
+        <div class="roadmap-row" data-reveal><span class="roadmap-index">03</span><div><span class="eyebrow">NEXT</span><h3>Agent routing & tools</h3></div><span class="stage-badge">Planned</span></div>
+        <div class="roadmap-row" data-reveal><span class="roadmap-index">04</span><div><span class="eyebrow">ON THE HORIZON</span><h3>Voice & session continuity</h3></div><span class="stage-badge">Vision</span></div>
+      </div></div>
+    </section>
+
+    <section class="finale section-wrap" aria-labelledby="finale-title">
+      <div class="section-label"><span>06 / KEEP THE THREAD</span><span>JARVIS / OS</span></div>
+      <h2 id="finale-title" data-reveal>Less switching.<br><span class="soft-type">More building.</span></h2>
+      <div class="finale-bottom"><p>A personal intelligence layer.<br>A more continuous way to work.</p><button class="button button-light" data-open-command>Start with a thought <span aria-hidden="true">↗</span></button></div>
+      <div class="finale-word" aria-hidden="true">JARVIS</div>
     </section>
   </main>
+  <footer class="site-footer"><div><span class="footer-brand">JARVIS / OS</span><span>Built by Tarun Kumar Sahu.</span></div><div class="footer-controls"><button id="sound-toggle" aria-pressed="false">Sound off</button><button id="motion-toggle" aria-pressed="true">Motion on</button><button id="shortcut-toggle" aria-label="Show keyboard shortcuts">Shortcuts <kbd>?</kbd></button></div><div><span>© 2026</span><a href="#top">Back to top ↑</a></div></footer>
 
-  <footer class="footer section-pad">
-    <div class="footer-left"><span class="brand-orb"><i></i><i></i><i></i></span><strong>JARVIS / OS</strong></div>
-    <div class="footer-center"><span>DESIGNED AS A BUILD-IN-PUBLIC PRODUCT EXPERIENCE.</span><span>© 2026</span></div>
-    <div class="footer-right"><a href="https://github.com/thetarunsahu/Jarvis-OS" target="_blank" rel="noreferrer">GITHUB ↗</a><a href="#top">TOP ↑</a></div>
-  </footer>
-
-  <script src="script.js"></script>
+  <dialog id="command-dialog" class="command-dialog" aria-labelledby="command-title">
+    <div class="dialog-heading"><span class="eyebrow">JARVIS / COMMAND</span><button data-close-dialog aria-label="Close command demo">×</button></div>
+    <h2 id="command-title">What's on your mind?</h2><p>Explore the vision with a scripted demo.</p>
+    <form id="command-form" class="prompt-form"><label class="sr-only" for="command-input">Your goal</label><input id="command-input" placeholder="Pick up where I left off…" autocomplete="off" maxlength="400" required><button type="submit" aria-label="Explore your goal">↗</button></form>
+    <div class="command-quick"><button data-dialog-prompt="Continue my Jarvis OS project"><span>01</span>Continue a project <span>↗</span></button><button data-dialog-prompt="Research what I need for my SIH project"><span>02</span>Research an idea <span>↗</span></button><button data-dialog-prompt="Find the files for my robot project"><span>03</span>Find a file <span>↗</span></button></div>
+    <div class="dialog-foot"><span>SIMULATED EXPERIENCE</span><span><kbd>esc</kbd> to close</span></div>
+  </dialog>
+  <dialog id="mobile-menu" class="mobile-menu" aria-labelledby="mobile-menu-title"><div class="dialog-heading"><span id="mobile-menu-title">JARVIS / OS</span><button data-close-dialog aria-label="Close navigation">×</button></div><nav aria-label="Mobile navigation"><a href="#vision">Vision <span>01</span></a><a href="#experience">Experience <span>02</span></a><a href="#system">System <span>03</span></a><a href="lab.html">Systems lab <span>↗</span></a><a href="#roadmap">The build <span>05</span></a></nav></dialog>
+  <dialog id="shortcuts-dialog" class="shortcuts-dialog" aria-labelledby="shortcuts-title"><div class="dialog-heading"><span class="eyebrow">TAKE A SHORTCUT</span><button data-close-dialog aria-label="Close keyboard shortcuts">×</button></div><h2 id="shortcuts-title">Your way in.</h2><dl><div><dt>Open Jarvis</dt><dd><kbd>J</kbd> or <kbd>Ctrl/⌘ K</kbd></dd></div><div><dt>Focus the command input</dt><dd><kbd>/</kbd></dd></div><div><dt>Explore memory</dt><dd><kbd>M</kbd></dd></div><div><dt>Meet the agents</dt><dd><kbd>A</kbd></dd></div><div><dt>Open the systems lab</dt><dd><kbd>L</kbd></dd></div><div><dt>Close a panel</dt><dd><kbd>Esc</kbd></dd></div></dl></dialog>
 </body>
 </html>

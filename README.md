@@ -8,7 +8,34 @@ This is not a generic SaaS landing page. It is an interactive build-in-public pr
 
 The website intentionally distinguishes **concept / target capability / simulation** from features that exist in the real Jarvis runtime.
 
-## Current experience
+## Redesigned experience
+
+The main page is a focused, responsive Jarvis product story. It includes a real WebGL core with drag and keyboard rotation, readable scroll reveals, a scripted command demo, workspace views, memory tabs, specialist handoffs, optional sound, and a motion toggle. Animations respect reduced-motion preferences; the 3D renderer pauses when out of view or when the tab is hidden.
+
+The complete existing interactive collection remains available at `lab.html`. Its scripts and styles now load in an explicit order. The older global kinetic-text and scroll-choreography overlays no longer run there; normal content stays readable. The full awakening can still be replayed with the lab's `B` shortcut.
+
+### Main-page shortcuts
+
+- `J` or `Ctrl/Cmd K`: open the command demo
+- `/`: focus the inline command input
+- `M`: inspect project memory
+- `A`: explore agents
+- `L`: open the systems lab
+- `?`: show shortcuts
+- `Escape`: close an open dialog
+
+The workspace and memory tabs support arrow keys and Home/End. Command responses are scripted examples; no real model, filesystem, or desktop runtime is connected.
+
+### Files and publishing
+
+- `index.html`, `experience.css`, `experience.js`: main product experience
+- `core-3d.js`: dependency-free WebGL renderer
+- `lab.html`, `lab-refinement.css`, `lab-accessibility.js`: preserved labs and accessibility refinements
+- `python scripts/stage_site.py`: copy the validated static site into `dist/` for hosting
+
+All relative paths also work under a GitHub Pages repository subpath. The original local-server instructions below still apply. A preview of a feature is not evidence that the Jarvis desktop runtime supports it.
+
+## Systems lab experience
 
 - Cinematic first-visit system awakening + quick session resume
 - Original Jarvis Core Sigil and reactive core states
