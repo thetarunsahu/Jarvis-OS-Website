@@ -87,12 +87,3 @@
 })();
 
 // Load V3.4 original cinematic concept artwork.
-const cinematicStyle=document.createElement('link');
-cinematicStyle.rel='stylesheet';
-cinematicStyle.href='cinematic-panels.css';
-document.head.appendChild(cinematicStyle);
-
-const cinematicScript=document.createElement('script');
-cinematicScript.src='cinematic-panels.js';
-cinematicScript.defer=true;
-document.head.appendChild(cinematicScript);

@@ -40,31 +40,3 @@
   function init(){inject();motion();}
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
 })();
-
-(function loadJarvisExperienceStack(){
-  const head=document.head;
-  const loaded=new Set();
-  function style(href){if(!href||loaded.has(href)||document.querySelector(`link[href="${href}"]`))return;loaded.add(href);const link=document.createElement('link');link.rel='stylesheet';link.href=href;head.appendChild(link);}
-  function script(src){if(!src||loaded.has(src)||document.querySelector(`script[src="${src}"]`))return;loaded.add(src);const el=document.createElement('script');el.src=src;el.async=false;head.appendChild(el);}
-  const stack=[
-    ['v4-system.css','v4-system.js'],
-    ['tech-atlas.css','tech-atlas.js'],
-    ['core-state.css','core-state.js'],
-    ['intro-core.css','intro-core.js'],
-    ['orchestration-lab.css','orchestration-lab.js'],
-    ['orchestration-enhance.css','orchestration-enhance.js'],
-    ['inside-jarvis.css','inside-jarvis.js'],
-    ['concept-lab.css','concept-lab.js'],
-    ['product-suite.css','product-suite.js'],
-    ['memory-interaction.css','memory-interaction.js'],
-    ['atlas-enhance.css','atlas-enhance.js'],
-    ['tech-annotations.css','tech-annotations.js'],
-    ['sound-system.css','sound-system.js'],
-    ['scroll-choreography.css','scroll-choreography.js'],
-    ['launch-polish.css','launch-polish.js'],
-    ['signature-experience.css','signature-experience.js'],
-    ['kinetic-type.css','kinetic-type.js'],
-    [null,'truth-enhance.js']
-  ];
-  stack.forEach(([css,js])=>{style(css);script(js);});
-})();

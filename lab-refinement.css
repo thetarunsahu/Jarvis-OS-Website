@@ -1,0 +1,41 @@
+/* The legacy labs keep their interactions with a calmer, consistent frame. */
+body.systems-lab{--bg:#08090b;--text:#f0f1f4;--muted:#9b9fab;--accent:#b8bfff;background:#08090b;cursor:auto}
+body.systems-lab a,body.systems-lab button{cursor:pointer}
+.systems-lab .cursor,.systems-lab .ambient,.systems-lab .noise,.systems-lab .boot,.systems-lab .hero,.systems-lab .ticker,.systems-lab .finale,.systems-lab .break-section{display:none!important}
+.systems-lab .topbar{top:45px;height:74px;background:rgba(8,9,11,.95);backdrop-filter:blur(16px);border-bottom:1px solid #ffffff15}
+.systems-lab .topbar.is-hidden{transform:none}
+.lab-home{position:fixed;inset:0 0 auto;height:45px;padding:12px 5vw;background:#191b24;color:#dce0f0;font-size:14px;z-index:2000;border-bottom:1px solid #ffffff12}
+.lab-home:hover{background:#252937}
+.lab-intro{padding:180px 6vw 60px;max-width:1500px;margin:auto;border-bottom:1px solid #ffffff20}
+.lab-intro>span{font:12px "DM Mono",monospace;color:#aab0c3}
+.lab-intro h1{font:500 clamp(36px,5.4vw,78px)/1.1 "Manrope",sans-serif;letter-spacing:-.055em;margin:30px 0 24px}
+.lab-intro p{font-size:16px;color:#9b9fab;line-height:1.7}
+.lab-intro nav{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.lab-intro nav a{padding:11px 16px;border:1px solid #ffffff25;border-radius:5px;font-size:14px}
+.lab-intro nav a:hover{background:#ffffff0a}
+body.systems-lab .section-pad{padding:75px 6vw}
+body.systems-lab .section-head{margin-bottom:40px;font-size:12px;gap:18px}
+body.systems-lab h2{font-size:clamp(34px,4.6vw,68px);letter-spacing:-.055em;line-height:1.14}
+body.systems-lab .manifesto-line{font-size:clamp(28px,4.3vw,64px)}
+body.systems-lab .agents-intro h2,body.systems-lab .roadmap-head h2,body.systems-lab .system-copy h2{font-size:clamp(34px,4.5vw,68px)}
+body.systems-lab .reveal,body.systems-lab .reveal-text{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}
+.systems-lab button:focus-visible,.systems-lab a:focus-visible,.systems-lab input:focus-visible{outline:2px solid #b8bfff;outline-offset:5px}
+.systems-lab .command-center,.systems-lab .nav-drawer{z-index:2100}
+.systems-lab .section-pad p{line-height:1.7}
+.systems-lab .agent-card{min-height:290px}
+.systems-lab .signal-wall,.systems-lab .jarvis-glossary{border-top:1px solid #ffffff15}
+.systems-lab .truth-toggle,.systems-lab .sound-toggle{font-size:12px}
+@media(max-width:700px){
+ .systems-lab .topbar{height:auto;min-height:70px;padding:14px 20px;gap:12px}
+ .systems-lab .topbar .system-state{display:none}.systems-lab .top-actions{gap:8px;flex-wrap:wrap}
+ .systems-lab .top-actions button{font-size:12px}.systems-lab .sound-toggle{display:none}
+ .lab-intro{padding:175px 24px 45px}.lab-intro h1{font-size:40px}
+ .lab-intro nav{gap:8px}.lab-intro nav a{font-size:12px;padding:10px 12px}
+ body.systems-lab .section-pad{padding:55px 24px}
+ body.systems-lab .section-head{font-size:10px;flex-wrap:wrap}
+ body.systems-lab h2{font-size:36px}
+ .systems-lab .core-pulse-hud{display:none}
+ .systems-lab .agent-card{min-width:250px}
+}
+@media(prefers-reduced-motion:reduce){.systems-lab *,.systems-lab *:before,.systems-lab *:after{animation:none!important;transition:none!important}.systems-lab{scroll-behavior:auto}}
+

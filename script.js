@@ -307,31 +307,3 @@ if (!reduceMotion) {
     }
   }, {passive:true});
 }
-
-// Load the build-in-public product truth lens as an isolated progressive enhancement.
-const truthLayerScript = document.createElement('script');
-truthLayerScript.src = 'truth-layer.js';
-truthLayerScript.defer = true;
-document.head.appendChild(truthLayerScript);
-
-// Load the V3 cinematic product showcase as a progressive enhancement.
-const visualUpgradeStyle = document.createElement('link');
-visualUpgradeStyle.rel = 'stylesheet';
-visualUpgradeStyle.href = 'visual-upgrade.css';
-document.head.appendChild(visualUpgradeStyle);
-
-const visualUpgradeScript = document.createElement('script');
-visualUpgradeScript.src = 'visual-upgrade.js';
-visualUpgradeScript.defer = true;
-document.head.appendChild(visualUpgradeScript);
-
-// Load the V3.2 interactive spatial context scene.
-const spatialCoreStyle = document.createElement('link');
-spatialCoreStyle.rel = 'stylesheet';
-spatialCoreStyle.href = 'spatial-core.css';
-document.head.appendChild(spatialCoreStyle);
-
-const spatialCoreScript = document.createElement('script');
-spatialCoreScript.src = 'spatial-core.js';
-spatialCoreScript.defer = true;
-document.head.appendChild(spatialCoreScript);
